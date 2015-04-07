@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+	<style>
+*{padding:0;margin:0;border:0 none; font-family:"Consolas","微软雅黑"; font-size:14px; color:#223;}
+html{background:#eef;}
+body{border-top:20px #ddf solid;}
+h1{padding:10px 0 11px 0; font-size:33px; color:#ddf;}
+h2{padding:10px 0 1px 0; font-size:22px; color:#335;}
+ul{padding:20px; margin:0 0 0 20px;}
+li{padding:5px; list-style-type:decimal;}
+code{padding:3px; color:#080;}
+.ap{ margin:2px; padding:4px;}
+b{color:#900}
+span{padding:3px; color:#d60; font-weight:bold;}
+strong{padding:3px; color:#f00; font-weight:bold;}
+a {color:#ddddff}
+a:hover{color:#dd3300}
+	</style>
+	<meta charset='utf-8'>
+	<title>莫克陶的github主页</title> 
+</head>
+
+
+<body>
+<h1>莫克陶的github主页</h1>
+<div id="menu"><a href="https://github.com/moketao">github.com/moketao</a><span> </span><a href="http://blog.csdn.net/mokt2001">blog.csdn.net/mokt2001</a><span> </span></div>
+	<div class="ap">
+		<h2>Golang、cuda、Windows、环境搭建笔记</h2>
+		<p>
+			<ul>
+				<li>因为我的系统是 Win7 64位的，所以先装<span>Mingw-w64</span>，下载地址：http://sourceforge.net/projects/mingw-w64/ <br/>安装的时候选 x86_64，其它默认</li>
+				<li>然后安装<span>CUDA</span></li>
+				<li>然后安装<span>Golang</span></li>
+				<li>然后安装<span>EveryThing</span>，这是个文件搜索软件，等下会用到</li>
+				<li>打开命令窗口cmd，运行：<code>go get github.com/barnex/cuda5</code>，报错：<strong>cannot find -lcuda</strong>，网上搜出全都是Linux解决方案，让我抓狂，所以才有此文。</li>
+				<li>用EveryThing搜<strong>cgoflags.go</strong>，发现在GOPAT的某些目录下包含总共4个cgoflags.go文件，打开后，发现最后面有Windows相关配置</li>
+				<li>4个cgoflags.go文件依次打开，将内部有关Windows的部分，全部改成：<br/>
+<pre><code>
+////WINDOWS:
+//#cgo windows LDFLAGS:-LF:/cuda/bin/lib/x64
+//#cgo windows CFLAGS: -IF:/cuda/bin/include
+import "C"
+</code></pre>
+<br/>上面代码中的F:/cuda/bin/lib/x64，代表cuda安装目录下的的lib目录，<br/>
+上面代码中的F:/cuda/bin/include，代表cuda安装目录下的的include目录。<br/>
+<b>注意：</b>如果你的cuda安装在C盘，则上面相应位置则是以C:/开头，而不是F:/开头。<br/>
+<b>注意：</b>斜杠注释不要去掉，golang能读，import "C"那一行必须与上一行紧贴，中间不能有空行。
+				</li>
+			</ul>
+		</p>
+	</div>
+</body>
+</html>
+
