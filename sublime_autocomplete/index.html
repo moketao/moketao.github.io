@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-  <title> dxsdk 安装过程中报错: S1023 &middot; 破耳狼 </title>
+  <title> 用sublime写shader也可以有 autocomplete（笨办法） &middot; 破耳狼 </title>
 
   
   <link rel="stylesheet" href="http://topdevil.com//css/poole.css">
@@ -46,26 +46,12 @@
 
     <div class="content container">
 <div class="post">
-  <h1>dxsdk 安装过程中报错: S1023</h1>
+  <h1>用sublime写shader也可以有 autocomplete（笨办法）</h1>
   <span class="post-date">Fri, Apr 10, 2015</span>
-      
+      <p>编写 Unity 的Shader，最痛苦的就是没有代码 <strong>自动完成</strong> 的提示了，今天装了 <strong>Sublime Text</strong>，只有高亮，于是想出一种超龊的办法，在前面粘贴一段类似的注释代码，如图：</p>
 
-<p>安装directx sdk 报错： errors were encountered during installation of redistributable package s1023</p>
-
-<h3 id="解决步奏:31e555ba754a60275651e451df32011c">解决步奏:</h3>
-
-<ol>
-<li>点击系统的【开始】按钮，然后点【运行】</li>
-<li>输入<strong>cmd</strong>，回车</li>
-<li>分别粘贴如下命令，回车（目的是卸载某些冲突的组件）
-<pre><code>MsiExec.exe /passive /X{F0C3E5D1-1ADE-321E-8167-68EF0DE699A5}
-MsiExec.exe /passive /X{1D8E6291-B0D5-35EC-8441-6616F567A0F7}
-</code></pre></li>
-<li>重新安装 dx sdk</li>
-<li>再安装刚才卸载的 <a href="http://www.microsoft.com/en-us/download/details.aspx?displaylang=en&amp;id=26999">组件</a> 如果是64位系统，最好 <strong>vcredist_x86.exe</strong> 和 <strong>vcredist_x64.exe</strong> 都装一次。</li>
-</ol>
-
-<p>英文解决方案原帖，点 <a href="http://blogs.msdn.com/b/chuckw/archive/2011/12/09/known-issue-directx-sdk-june-2010-setup-and-the-s1023-error.aspx">这里</a></p>
+<p><img src="/img/subl_auto.png" alt="sublime_unity_shader_auto_complete" />
+</p>
 
 </div>
 </div>

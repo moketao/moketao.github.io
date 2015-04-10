@@ -6,8 +6,21 @@
     <description>Recent content on 破耳狼</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 10 Apr 2015 17:47:19 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 10 Apr 2015 20:05:28 +0800</lastBuildDate>
     <atom:link href="http://topdevil.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>用sublime写shader也可以有 autocomplete（笨办法）</title>
+      <link>http://topdevil.com/sublime_autocomplete/</link>
+      <pubDate>Fri, 10 Apr 2015 20:05:28 +0800</pubDate>
+      
+      <guid>http://topdevil.com/sublime_autocomplete/</guid>
+      <description>&lt;p&gt;编写 Unity 的Shader，最痛苦的就是没有代码 &lt;strong&gt;自动完成&lt;/strong&gt; 的提示了，今天装了 &lt;strong&gt;Sublime Text&lt;/strong&gt;，只有高亮，于是想出一种超龊的办法，在前面粘贴一段类似的注释代码，如图：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://topdevil.com/img/subl_auto.png&#34; alt=&#34;sublime_unity_shader_auto_complete&#34; /&gt;
+&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>dxsdk 安装过程中报错: S1023</title>
@@ -15,11 +28,11 @@
       <pubDate>Fri, 10 Apr 2015 17:47:19 +0800</pubDate>
       
       <guid>http://topdevil.com/dxsdk_install_err/</guid>
-      <description>&lt;p&gt;英文原帖点 &lt;a href=&#34;http://blogs.msdn.com/b/chuckw/archive/2011/12/09/known-issue-directx-sdk-june-2010-setup-and-the-s1023-error.aspx&#34;&gt;这里&lt;/a&gt;&lt;/p&gt;
+      <description>
 
 &lt;p&gt;安装directx sdk 报错： errors were encountered during installation of redistributable package s1023&lt;/p&gt;
 
-&lt;p&gt;###解决步奏:&lt;/p&gt;
+&lt;h3 id=&#34;解决步奏:31e555ba754a60275651e451df32011c&#34;&gt;解决步奏:&lt;/h3&gt;
 
 &lt;ol&gt;
 &lt;li&gt;点击系统的【开始】按钮，然后点【运行】&lt;/li&gt;
@@ -31,6 +44,8 @@ MsiExec.exe /passive /X{1D8E6291-B0D5-35EC-8441-6616F567A0F7}
 &lt;li&gt;重新安装 dx sdk&lt;/li&gt;
 &lt;li&gt;再安装刚才卸载的 &lt;a href=&#34;http://www.microsoft.com/en-us/download/details.aspx?displaylang=en&amp;amp;id=26999&#34;&gt;组件&lt;/a&gt; 如果是64位系统，最好 &lt;strong&gt;vcredist_x86.exe&lt;/strong&gt; 和 &lt;strong&gt;vcredist_x64.exe&lt;/strong&gt; 都装一次。&lt;/li&gt;
 &lt;/ol&gt;
+
+&lt;p&gt;英文解决方案原帖，点 &lt;a href=&#34;http://blogs.msdn.com/b/chuckw/archive/2011/12/09/known-issue-directx-sdk-june-2010-setup-and-the-s1023-error.aspx&#34;&gt;这里&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
