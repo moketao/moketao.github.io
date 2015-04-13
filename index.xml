@@ -6,8 +6,119 @@
     <description>Recent content on 破耳狼</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 10 Apr 2015 20:05:28 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 13 Apr 2015 09:39:39 +0800</lastBuildDate>
     <atom:link href="http://topdevil.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>使用 Unity Shader 实现 GPU Hair</title>
+      <link>http://topdevil.com/unity_shader_gpu_hair/</link>
+      <pubDate>Mon, 13 Apr 2015 09:39:39 +0800</pubDate>
+      
+      <guid>http://topdevil.com/unity_shader_gpu_hair/</guid>
+      <description>&lt;p&gt;本来想用 &lt;strong&gt;Unity&lt;/strong&gt; &lt;strong&gt;布料系统&lt;/strong&gt; 实现头发或飘带等效果，但是使用过后，发现非常消耗性能。
+所以不得不研究别的办法。
+下面是我的实现方法，GPU Hair：
+&lt;img src=&#34;http://topdevil.com/img/gpuhair.png&#34; alt=&#34;&#34; /&gt;
+
+&lt;pre&gt;
+&lt;code&gt;
+Shader &amp;ldquo;Custom/GPUHair&amp;rdquo;{
+    Properties{
+        _MainTex (&amp;ldquo;Base (RGB)&amp;rdquo;, 2D) = &amp;ldquo;white&amp;rdquo; {}        //贴图
+        _DelayPoint (&amp;ldquo;DelayPoint&amp;rdquo;, Vector) = (9.0,0,0,0)//尾部位置
+        _HairLength(&amp;ldquo;HairLength&amp;rdquo;,Float) = 5             //头发长度
+        _TimeScale(&amp;ldquo;TimeScale&amp;rdquo;,Range(0.0,200)) = 50     //波形速度
+    }
+    SubShader{
+        Tags{&amp;ldquo;RenderType&amp;rdquo;=&amp;ldquo;Opaque&amp;rdquo;}
+        Cull off&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    CGPROGRAM
+    #pragma surface SurfFun Lambert vertex:VertFun
+    sampler2D _MainTex;
+
+    float _TimeScale;
+    float4 _DelayPoint;
+    float _HairLength;
+
+    void VertFun(inout appdata_full v){
+        _DelayPoint.w = 1;//修正头发变形的bug
+        float4 localPos = mul(_World2Object,_DelayPoint);//把尾部的坐标，从世界坐标系挪移进头发模型中
+        float factor = clamp(v.vertex.x/_HairLength,0,1);//当前点在发根到发梢的哪个位置（0~1.0）
+        float tmpZ = v.vertex.z;//记录z
+        v.vertex.z = 0;//把当前点先暂时挪到中间
+        float4 dis = pow(factor,2)*(localPos - v.vertex);//当前点到尾部的距离
+        v.vertex.y += factor*2*cos(v.vertex.x - _Time*_TimeScale);//波形
+        v.vertex = v.vertex + dis;//波形加上甩尾偏移（当人物或者发根移动的时候）
+        v.vertex.z += tmpZ;//恢复之前记录的z
+    }
+
+    struct Input{
+        float2 uv_MainTex;
+    };
+    void SurfFun(Input IN, inout SurfaceOutput o){
+        half4 c = tex2D (_MainTex, IN.uv_MainTex);
+        o.Albedo = c.rgb;
+        o.Alpha = c.a;
+    }
+    ENDCG
+}
+Fallback &amp;quot;Diffuse&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;}&lt;/p&gt;
+
+&lt;p&gt;&lt;/code&gt;
+&lt;/pre&gt;&lt;/p&gt;
+
+&lt;p&gt;另外，场景里对应的网格物体，需要再挂一个脚本：
+&lt;pre&gt;
+&lt;code&gt;
+using UnityEngine;
+using System.Collections;&lt;/p&gt;
+
+&lt;p&gt;public class DelayPoint : MonoBehaviour {&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;public GameObject delayPoint;//尾部
+public float delayTime = 0.5f;
+
+private Transform t1;//网格物体中心点所在位置（发根）
+private Transform t2;//尾部所在位置（发梢）
+private Vector3 distanceToT1;//尾部到中心的距离
+
+private Vector3 velocity = Vector3.zero;//当前速度
+private Vector3 targetPoint = Vector3.zero;//跟随点
+
+void Start () {
+    t1 = transform;
+    t2 = delayPoint.transform;
+    distanceToT1 = t2.position - t1.position;
+}
+
+void Update () {
+    targetPoint = t1.position + distanceToT1;
+    Vector3 newPos = Vector3.SmoothDamp(t2.position, targetPoint, ref velocity, delayTime);//尾部的缓动效果
+    t2.position = newPos;
+    Renderer render = t1.GetComponent&amp;lt;Renderer&amp;gt;();
+    render.material.SetVector(&amp;quot;_DelayPoint&amp;quot;, t2.position);//将尾部的坐标传送给显卡
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;}&lt;/p&gt;
+
+&lt;p&gt;&lt;/code&gt;
+&lt;/pre&gt;&lt;/p&gt;
+
+&lt;p&gt;具体使用方法：
+1. 建立一个plane，大小默认（边长是10），或者用3dsmax建模。
+2. 给plane加上脚本和材质，材质的Shader指定为 Custom/GPUHair。
+3. 建立一个空物体，放置到plane边缘，大概是（5,0,0）的位置。
+4. 在脚本上你会看见一个delayPoint的属性，把空物体拖拽到这个属性上。
+4. 点击播放按钮。&lt;/p&gt;
+
+&lt;p&gt;将来可能会支持碰撞检测，大致的思路已经有了，支持一个碰撞圆应该没问题。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>用sublime写shader也可以有 autocomplete（笨办法）</title>
@@ -15,7 +126,7 @@
       <pubDate>Fri, 10 Apr 2015 20:05:28 +0800</pubDate>
       
       <guid>http://topdevil.com/sublime_autocomplete/</guid>
-      <description>&lt;p&gt;编写 Unity 的Shader，最痛苦的就是没有代码 &lt;strong&gt;自动完成&lt;/strong&gt; 的提示了，今天装了 &lt;strong&gt;Sublime Text&lt;/strong&gt;，只有高亮，于是想出一种超龊的办法，在前面粘贴一段类似的注释代码，如图：&lt;/p&gt;
+      <description>&lt;p&gt;编写 Unity 的Shader，最痛苦的就是没有代码 &lt;strong&gt;自动完成&lt;/strong&gt; 的代码提示了，今天装了 &lt;strong&gt;Sublime Text&lt;/strong&gt;，只有高亮，于是想出一种超龊的办法，在前面粘贴一段类似的注释代码，如图：&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;http://topdevil.com/img/subl_auto.png&#34; alt=&#34;sublime_unity_shader_auto_complete&#34; /&gt;
 &lt;/p&gt;

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title> 使用 Unity Shader 实现 GPU Hair &middot; 破耳狼 </title>
+
+  
+  <link rel="stylesheet" href="http://topdevil.com//css/poole.css">
+  <link rel="stylesheet" href="http://topdevil.com//css/syntax.css">
+  <link rel="stylesheet" href="http://topdevil.com//css/hyde.css">
+  <link rel="stylesheet" href="http://fonts.useso.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="破耳狼" />
+</head>
+
+<body>
+
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>破耳狼</h1>
+      <p class="lead">
+      美术与程序双工<br/>GitHub Url : <a href="http://github.com/moketao">GitHub.com/moketao</a>
+      </p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li><a href="/">Home</a> </li>
+      
+    </ul>
+
+    <p>&copy; 2015. All rights reserved. </p>
+  </div>
+</div>
+
+
+    <div class="content container">
+<div class="post">
+  <h1>使用 Unity Shader 实现 GPU Hair</h1>
+  <span class="post-date">Mon, Apr 13, 2015</span>
+      <p>本来想用 <strong>Unity</strong> <strong>布料系统</strong> 实现头发或飘带等效果，但是使用过后，发现非常消耗性能。
+所以不得不研究别的办法。
+下面是我的实现方法，GPU Hair：
+<img src="/img/gpuhair.png" alt="" />
+
+<pre>
+<code>
+Shader &ldquo;Custom/GPUHair&rdquo;{
+    Properties{
+        _MainTex (&ldquo;Base (RGB)&rdquo;, 2D) = &ldquo;white&rdquo; {}        //贴图
+        _DelayPoint (&ldquo;DelayPoint&rdquo;, Vector) = (9.0,0,0,0)//尾部位置
+        _HairLength(&ldquo;HairLength&rdquo;,Float) = 5             //头发长度
+        _TimeScale(&ldquo;TimeScale&rdquo;,Range(0.0,200)) = 50     //波形速度
+    }
+    SubShader{
+        Tags{&ldquo;RenderType&rdquo;=&ldquo;Opaque&rdquo;}
+        Cull off</p>
+
+<pre><code>    CGPROGRAM
+    #pragma surface SurfFun Lambert vertex:VertFun
+    sampler2D _MainTex;
+
+    float _TimeScale;
+    float4 _DelayPoint;
+    float _HairLength;
+
+    void VertFun(inout appdata_full v){
+        _DelayPoint.w = 1;//修正头发变形的bug
+        float4 localPos = mul(_World2Object,_DelayPoint);//把尾部的坐标，从世界坐标系挪移进头发模型中
+        float factor = clamp(v.vertex.x/_HairLength,0,1);//当前点在发根到发梢的哪个位置（0~1.0）
+        float tmpZ = v.vertex.z;//记录z
+        v.vertex.z = 0;//把当前点先暂时挪到中间
+        float4 dis = pow(factor,2)*(localPos - v.vertex);//当前点到尾部的距离
+        v.vertex.y += factor*2*cos(v.vertex.x - _Time*_TimeScale);//波形
+        v.vertex = v.vertex + dis;//波形加上甩尾偏移（当人物或者发根移动的时候）
+        v.vertex.z += tmpZ;//恢复之前记录的z
+    }
+
+    struct Input{
+        float2 uv_MainTex;
+    };
+    void SurfFun(Input IN, inout SurfaceOutput o){
+        half4 c = tex2D (_MainTex, IN.uv_MainTex);
+        o.Albedo = c.rgb;
+        o.Alpha = c.a;
+    }
+    ENDCG
+}
+Fallback &quot;Diffuse&quot;
+</code></pre>
+
+<p>}</p>
+
+<p></code>
+</pre></p>
+
+<p>另外，场景里对应的网格物体，需要再挂一个脚本：
+<pre>
+<code>
+using UnityEngine;
+using System.Collections;</p>
+
+<p>public class DelayPoint : MonoBehaviour {</p>
+
+<pre><code>public GameObject delayPoint;//尾部
+public float delayTime = 0.5f;
+
+private Transform t1;//网格物体中心点所在位置（发根）
+private Transform t2;//尾部所在位置（发梢）
+private Vector3 distanceToT1;//尾部到中心的距离
+
+private Vector3 velocity = Vector3.zero;//当前速度
+private Vector3 targetPoint = Vector3.zero;//跟随点
+
+void Start () {
+    t1 = transform;
+    t2 = delayPoint.transform;
+    distanceToT1 = t2.position - t1.position;
+}
+
+void Update () {
+    targetPoint = t1.position + distanceToT1;
+    Vector3 newPos = Vector3.SmoothDamp(t2.position, targetPoint, ref velocity, delayTime);//尾部的缓动效果
+    t2.position = newPos;
+    Renderer render = t1.GetComponent&lt;Renderer&gt;();
+    render.material.SetVector(&quot;_DelayPoint&quot;, t2.position);//将尾部的坐标传送给显卡
+}
+</code></pre>
+
+<p>}</p>
+
+<p></code>
+</pre></p>
+
+<p>具体使用方法：
+1. 建立一个plane，大小默认（边长是10），或者用3dsmax建模。
+2. 给plane加上脚本和材质，材质的Shader指定为 Custom/GPUHair。
+3. 建立一个空物体，放置到plane边缘，大概是（5,0,0）的位置。
+4. 在脚本上你会看见一个delayPoint的属性，把空物体拖拽到这个属性上。
+4. 点击播放按钮。</p>
+
+<p>将来可能会支持碰撞检测，大致的思路已经有了，支持一个碰撞圆应该没问题。</p>
+
+</div>
+</div>
+
+  </body>
+</html>
