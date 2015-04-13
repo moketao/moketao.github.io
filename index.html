@@ -59,7 +59,7 @@
 
     <p>本来想用 <strong>Unity</strong> <strong>布料系统</strong> 实现头发或飘带等效果，但是使用过后，发现非常消耗性能。
 所以不得不研究别的办法。
-下面是我的实现方法，GPU Hair：
+下面是我的实现方法，<strong>GPU Hair</strong>：
 <img src="/img/gpuhair.png" alt="" />
 
 <pre>
@@ -146,17 +146,19 @@ void Update () {
 }
 </code></pre>
 
-<p>}</p>
-
-<p></code>
+<p>}
+</code>
 </pre></p>
 
-<p>具体使用方法：
-1. 建立一个plane，大小默认（边长是10），或者用3dsmax建模。
-2. 给plane加上脚本和材质，材质的Shader指定为 Custom/GPUHair。
-3. 建立一个空物体，放置到plane边缘，大概是（5,0,0）的位置。
-4. 在脚本上你会看见一个delayPoint的属性，把空物体拖拽到这个属性上。
-4. 点击播放按钮。</p>
+<p>具体使用方法：</p>
+
+<ol>
+<li>建立一个plane，大小默认（边长是10），或者用3dsmax建模。</li>
+<li>给plane加上脚本和材质，材质的Shader指定为 Custom/GPUHair。</li>
+<li>建立一个空物体，放置到plane边缘，大概是（5,0,0）的位置。</li>
+<li>在脚本上你会看见一个delayPoint的属性，把空物体拖拽到这个属性上。</li>
+<li>点击播放按钮。</li>
+</ol>
 
 <p>将来可能会支持碰撞检测，大致的思路已经有了，支持一个碰撞圆应该没问题。</p>
 

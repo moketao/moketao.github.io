@@ -17,7 +17,7 @@
       <guid>http://topdevil.com/unity_shader_gpu_hair/</guid>
       <description>&lt;p&gt;本来想用 &lt;strong&gt;Unity&lt;/strong&gt; &lt;strong&gt;布料系统&lt;/strong&gt; 实现头发或飘带等效果，但是使用过后，发现非常消耗性能。
 所以不得不研究别的办法。
-下面是我的实现方法，GPU Hair：
+下面是我的实现方法，&lt;strong&gt;GPU Hair&lt;/strong&gt;：
 &lt;img src=&#34;http://topdevil.com/img/gpuhair.png&#34; alt=&#34;&#34; /&gt;
 
 &lt;pre&gt;
@@ -104,17 +104,19 @@ void Update () {
 }
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;}&lt;/p&gt;
-
-&lt;p&gt;&lt;/code&gt;
+&lt;p&gt;}
+&lt;/code&gt;
 &lt;/pre&gt;&lt;/p&gt;
 
-&lt;p&gt;具体使用方法：
-1. 建立一个plane，大小默认（边长是10），或者用3dsmax建模。
-2. 给plane加上脚本和材质，材质的Shader指定为 Custom/GPUHair。
-3. 建立一个空物体，放置到plane边缘，大概是（5,0,0）的位置。
-4. 在脚本上你会看见一个delayPoint的属性，把空物体拖拽到这个属性上。
-4. 点击播放按钮。&lt;/p&gt;
+&lt;p&gt;具体使用方法：&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;建立一个plane，大小默认（边长是10），或者用3dsmax建模。&lt;/li&gt;
+&lt;li&gt;给plane加上脚本和材质，材质的Shader指定为 Custom/GPUHair。&lt;/li&gt;
+&lt;li&gt;建立一个空物体，放置到plane边缘，大概是（5,0,0）的位置。&lt;/li&gt;
+&lt;li&gt;在脚本上你会看见一个delayPoint的属性，把空物体拖拽到这个属性上。&lt;/li&gt;
+&lt;li&gt;点击播放按钮。&lt;/li&gt;
+&lt;/ol&gt;
 
 &lt;p&gt;将来可能会支持碰撞检测，大致的思路已经有了，支持一个碰撞圆应该没问题。&lt;/p&gt;
 </description>
