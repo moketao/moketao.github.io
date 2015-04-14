@@ -28,7 +28,7 @@
 			<script src="http://topdevil.com//css/prettify.js"></script>
 			<script type="text/javascript">
 				$(function(){
-				$("pre").addClass("prettyprint");
+				$("pre").addClass("prettyprint linenums");
 					prettyPrint();
 				});
 			</script>
@@ -66,88 +66,84 @@
 <img src="/img/gpuhair.png" alt="" />
 </p>
 
-<p>
 <pre>
 Shader "Custom/GPUHair"{
-	Properties{
-		_MainTex ("Base (RGB)", 2D) = "white" {}		//贴图
-		_DelayPoint ("DelayPoint", Vector) = (9.0,0,0,0)//尾部位置
-		_HairLength("HairLength",Float) = 5				//头发长度
-		_TimeScale("TimeScale",Range(0.0,200)) = 50		//波形速度
-	}
-	SubShader{
-		Tags{"RenderType"="Opaque"}
-		Cull off
-		CGPROGRAM
-		#pragma surface SurfFun Lambert vertex:VertFun
-		sampler2D _MainTex;
+    Properties{
+        _MainTex ("Base (RGB)", 2D) = "white" {}        //贴图
+        _DelayPoint ("DelayPoint", Vector) = (9.0,0,0,0)//尾部位置
+        _HairLength("HairLength",Float) = 5             //头发长度
+        _TimeScale("TimeScale",Range(0.0,200)) = 50     //波形速度
+    }
+    SubShader{
+        Tags{"RenderType"="Opaque"}
+        Cull off
+        CGPROGRAM
+        #pragma surface SurfFun Lambert vertex:VertFun
+        sampler2D _MainTex;
 
-		float _TimeScale;
-		float4 _DelayPoint;
-		float _HairLength;
+        float _TimeScale;
+        float4 _DelayPoint;
+        float _HairLength;
 
-		void VertFun(inout appdata_full v){
-			_DelayPoint.w = 1;//修正头发变形的bug
-			float4 localPos = mul(_World2Object,_DelayPoint);//把尾部的坐标，从世界坐标系挪移进头发模型中
-			float factor = clamp(v.vertex.x/_HairLength,0,1);//当前点在发根到发梢的哪个位置（0~1.0）
-			float tmpZ = v.vertex.z;//记录z
-			v.vertex.z = 0;//把当前点先暂时挪到中间
-			float4 dis = pow(factor,2)*(localPos - v.vertex);//当前点到尾部的距离
-			v.vertex.y += factor*2*cos(v.vertex.x - _Time*_TimeScale);//波形
-			v.vertex = v.vertex + dis;//波形加上甩尾偏移（当人物或者发根移动的时候）
-			v.vertex.z += tmpZ;//恢复之前记录的z
-		}
+        void VertFun(inout appdata_full v){
+            _DelayPoint.w = 1;//修正头发变形的bug
+            float4 localPos = mul(_World2Object,_DelayPoint);//把尾部的坐标，从世界坐标系挪移进头发模型中
+            float factor = clamp(v.vertex.x/_HairLength,0,1);//当前点在发根到发梢的哪个位置（0~1.0）
+            float tmpZ = v.vertex.z;//记录z
+            v.vertex.z = 0;//把当前点先暂时挪到中间
+            float4 dis = pow(factor,2)*(localPos - v.vertex);//当前点到尾部的距离
+            v.vertex.y += factor*2*cos(v.vertex.x - _Time*_TimeScale);//波形
+            v.vertex = v.vertex + dis;//波形加上甩尾偏移（当人物或者发根移动的时候）
+            v.vertex.z += tmpZ;//恢复之前记录的z
+        }
 
-		struct Input{
-			float2 uv_MainTex;
-		};
-		void SurfFun(Input IN, inout SurfaceOutput o){
-			half4 c = tex2D (_MainTex, IN.uv_MainTex);
-			o.Albedo = c.rgb;
-			o.Alpha = c.a;
-		}
-		ENDCG
-	}
-	Fallback "Diffuse"
+        struct Input{
+            float2 uv_MainTex;
+        };
+        void SurfFun(Input IN, inout SurfaceOutput o){
+            half4 c = tex2D (_MainTex, IN.uv_MainTex);
+            o.Albedo = c.rgb;
+            o.Alpha = c.a;
+        }
+        ENDCG
+    }
+    Fallback "Diffuse"
 }
 </pre>
-</p>
 
 <p>另外，场景里对应的网格物体，需要再挂一个脚本：</p>
 
-<p>
 <pre>
 using UnityEngine;
 using System.Collections;
 
 public class DelayPoint : MonoBehaviour {
 
-	public GameObject delayPoint;//尾部
-	public float delayTime = 0.5f;
+    public GameObject delayPoint;//尾部
+    public float delayTime = 0.5f;
 
-	private Transform t1;//网格物体中心点所在位置（发根）
-	private Transform t2;//尾部所在位置（发梢）
-	private Vector3 distanceToT1;//尾部到中心的距离
+    private Transform t1;//网格物体中心点所在位置（发根）
+    private Transform t2;//尾部所在位置（发梢）
+    private Vector3 distanceToT1;//尾部到中心的距离
 
-	private Vector3 velocity = Vector3.zero;//当前速度
-	private Vector3 targetPoint = Vector3.zero;//跟随点
+    private Vector3 velocity = Vector3.zero;//当前速度
+    private Vector3 targetPoint = Vector3.zero;//跟随点
 
-	void Start () {
-		t1 = transform;
-		t2 = delayPoint.transform;
-		distanceToT1 = t2.position - t1.position;
-	}
-	
-	void Update () {
-		targetPoint = t1.position + distanceToT1;
-		Vector3 newPos = Vector3.SmoothDamp(t2.position, targetPoint, ref velocity, delayTime);//尾部的缓动效果
-		t2.position = newPos;
-		Renderer render = t1.GetComponent<Renderer>();
-		render.material.SetVector("_DelayPoint", t2.position);//将尾部的坐标传送给显卡
-	}
+    void Start () {
+        t1 = transform;
+        t2 = delayPoint.transform;
+        distanceToT1 = t2.position - t1.position;
+    }
+    
+    void Update () {
+        targetPoint = t1.position + distanceToT1;
+        Vector3 newPos = Vector3.SmoothDamp(t2.position, targetPoint, ref velocity, delayTime);//尾部的缓动效果
+        t2.position = newPos;
+        Renderer render = t1.GetComponent<Renderer>();
+        render.material.SetVector("_DelayPoint", t2.position);//将尾部的坐标传送给显卡
+    }
 }
 </pre>
-</p>
 
 <p>具体使用方法：</p>
 
