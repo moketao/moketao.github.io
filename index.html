@@ -50,6 +50,97 @@
       
   <div class="post">
     <h1 class="post-title">
+      <a href="http://topdevil.com/unity_path_ios_android/">
+        unity_path_ios_android
+      </a>
+    </h1>
+
+    <span class="post-date">2015-04-24</span>
+
+    
+
+<table>
+<thead>
+<tr>
+<th>Unity目录</th>
+<th>特性</th>
+<th>读写权限</th>
+<th>是否会被iTunes备份（ios下）</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Application.<strong>dataPath</strong></td>
+<td>打包时就固化了，可以读取“sceneName.unity3d”(待验证)</td>
+<td>只读</td>
+<td>yes</td>
+</tr>
+
+<tr>
+<td>Application.<strong>streamingAssetsPath</strong></td>
+<td>程序员在Unity项目的Assets文件夹下手动创建的&rdquo;StreamingAssets&rdquo;目录，可以存放xml、json、jpg、mp4等等文件，手机平台上只读。</td>
+<td>只读</td>
+<td>yes</td>
+</tr>
+
+<tr>
+<td>Application.<strong>persistentDataPath</strong></td>
+<td>暴露给用户的数据或图片目录，当然也可以存放app生成的文件或下载文件。此目录会被备份到iTunes并同步到其它苹果设备（如果用户有多台iPhone的话），但是app审核上线期间不要在这个目录占用太多，否则有可能会通不过审核，如果更新包很大的话，推荐使用Application.<strong>temporaryCachePath</strong> 存放下载更新包。</td>
+<td>读写</td>
+<td>yes</td>
+</tr>
+
+<tr>
+<td>Application.<strong>temporaryCachePath</strong></td>
+<td>不会被iTunes备份，但也不会被删除，会一直保留在当前设备。</td>
+<td>读写</td>
+<td>no</td>
+</tr>
+</tbody>
+</table>
+
+<p>streamingAssetsPath下的文件读取方法是：
+<pre><code>#if UNITY_EDITOR
+    string filepath = Application.dataPath +&ldquo;/StreamingAssets&rdquo;+&ldquo;/my.xml&rdquo;;
+#elif UNITY_IPHONE
+    string filepath = Application.dataPath +&ldquo;/Raw&rdquo;+&ldquo;/my.xml&rdquo;;
+#elif UNITY_ANDROID
+    string filepath = &ldquo;jar:file://&rdquo; + Application.dataPath + &ldquo;!/assets/&rdquo;+&ldquo;/my.xml;
+</code></pre></p>
+
+<h3 id="ios:16683e76e14a70877b630ac3dd20e29c">IOS:</h3>
+
+<pre><code>Application.dataPath :             Application/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/xxx.app/Data
+Application.streamingAssetsPath :  Application/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/xxx.app/Data/Raw
+Application.persistentDataPath :   Application/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Documents
+Application.temporaryCachePath :   Application/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Library/Caches</code></pre>
+
+<h3 id="android:16683e76e14a70877b630ac3dd20e29c">Android:</h3>
+
+<pre><code>Application.dataPath :                /data/app/xxx.xxx.xxx.apk
+Application.streamingAssetsPath :     jar:file:///data/app/xxx.xxx.xxx.apk/!/assets
+Application.persistentDataPath :      /data/data/xxx.xxx.xxx/files
+Application.temporaryCachePath :      /data/data/xxx.xxx.xxx/cache</code></pre>
+
+<h3 id="windows:16683e76e14a70877b630ac3dd20e29c">Windows:</h3>
+
+<pre><code>Application.dataPath :                /Assets
+Application.streamingAssetsPath :     /Assets/StreamingAssets
+Application.persistentDataPath :      C:/Users/xxxx/AppData/LocalLow/CompanyName/ProductName
+Application.temporaryCachePath :      C:/Users/xxxx/AppData/Local/Temp/CompanyName/ProductName</code></pre>
+
+<h3 id="mac:16683e76e14a70877b630ac3dd20e29c">Mac:</h3>
+
+<pre><code>Application.dataPath :                /Assets
+Application.streamingAssetsPath :     /Assets/StreamingAssets
+Application.persistentDataPath :      /Users/xxxx/Library/Caches/CompanyName/Product Name
+Application.temporaryCachePath :      /var/folders/57/6b4_9w8113x2fsmzx_yhrhvh0000gn/T/CompanyName/Product Name</code></pre>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
       <a href="http://topdevil.com/unity_shader_gpu_hair/">
         使用 Unity Shader 实现 GPU Hair
       </a>

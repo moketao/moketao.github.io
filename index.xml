@@ -6,8 +6,96 @@
     <description>Recent content on 破耳狼</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 13 Apr 2015 09:39:39 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 14 Apr 2015 14:26:54 +0800</lastBuildDate>
     <atom:link href="http://topdevil.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>unity_path_ios_android</title>
+      <link>http://topdevil.com/unity_path_ios_android/</link>
+      <pubDate>Tue, 14 Apr 2015 14:26:54 +0800</pubDate>
+      
+      <guid>http://topdevil.com/unity_path_ios_android/</guid>
+      <description>
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Unity目录&lt;/th&gt;
+&lt;th&gt;特性&lt;/th&gt;
+&lt;th&gt;读写权限&lt;/th&gt;
+&lt;th&gt;是否会被iTunes备份（ios下）&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Application.&lt;strong&gt;dataPath&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;打包时就固化了，可以读取“sceneName.unity3d”(待验证)&lt;/td&gt;
+&lt;td&gt;只读&lt;/td&gt;
+&lt;td&gt;yes&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Application.&lt;strong&gt;streamingAssetsPath&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;程序员在Unity项目的Assets文件夹下手动创建的&amp;rdquo;StreamingAssets&amp;rdquo;目录，可以存放xml、json、jpg、mp4等等文件，手机平台上只读。&lt;/td&gt;
+&lt;td&gt;只读&lt;/td&gt;
+&lt;td&gt;yes&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Application.&lt;strong&gt;persistentDataPath&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;暴露给用户的数据或图片目录，当然也可以存放app生成的文件或下载文件。此目录会被备份到iTunes并同步到其它苹果设备（如果用户有多台iPhone的话），但是app审核上线期间不要在这个目录占用太多，否则有可能会通不过审核，如果更新包很大的话，推荐使用Application.&lt;strong&gt;temporaryCachePath&lt;/strong&gt; 存放下载更新包。&lt;/td&gt;
+&lt;td&gt;读写&lt;/td&gt;
+&lt;td&gt;yes&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Application.&lt;strong&gt;temporaryCachePath&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;不会被iTunes备份，但也不会被删除，会一直保留在当前设备。&lt;/td&gt;
+&lt;td&gt;读写&lt;/td&gt;
+&lt;td&gt;no&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;streamingAssetsPath下的文件读取方法是：
+&lt;pre&gt;&lt;code&gt;#if UNITY_EDITOR
+    string filepath = Application.dataPath +&amp;ldquo;/StreamingAssets&amp;rdquo;+&amp;ldquo;/my.xml&amp;rdquo;;
+#elif UNITY_IPHONE
+    string filepath = Application.dataPath +&amp;ldquo;/Raw&amp;rdquo;+&amp;ldquo;/my.xml&amp;rdquo;;
+#elif UNITY_ANDROID
+    string filepath = &amp;ldquo;jar:file://&amp;rdquo; + Application.dataPath + &amp;ldquo;!/assets/&amp;rdquo;+&amp;ldquo;/my.xml;
+&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;ios:16683e76e14a70877b630ac3dd20e29c&#34;&gt;IOS:&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;Application.dataPath :             Application/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/xxx.app/Data
+Application.streamingAssetsPath :  Application/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/xxx.app/Data/Raw
+Application.persistentDataPath :   Application/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Documents
+Application.temporaryCachePath :   Application/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Library/Caches&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;android:16683e76e14a70877b630ac3dd20e29c&#34;&gt;Android:&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;Application.dataPath :                /data/app/xxx.xxx.xxx.apk
+Application.streamingAssetsPath :     jar:file:///data/app/xxx.xxx.xxx.apk/!/assets
+Application.persistentDataPath :      /data/data/xxx.xxx.xxx/files
+Application.temporaryCachePath :      /data/data/xxx.xxx.xxx/cache&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;windows:16683e76e14a70877b630ac3dd20e29c&#34;&gt;Windows:&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;Application.dataPath :                /Assets
+Application.streamingAssetsPath :     /Assets/StreamingAssets
+Application.persistentDataPath :      C:/Users/xxxx/AppData/LocalLow/CompanyName/ProductName
+Application.temporaryCachePath :      C:/Users/xxxx/AppData/Local/Temp/CompanyName/ProductName&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;mac:16683e76e14a70877b630ac3dd20e29c&#34;&gt;Mac:&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;Application.dataPath :                /Assets
+Application.streamingAssetsPath :     /Assets/StreamingAssets
+Application.persistentDataPath :      /Users/xxxx/Library/Caches/CompanyName/Product Name
+Application.temporaryCachePath :      /var/folders/57/6b4_9w8113x2fsmzx_yhrhvh0000gn/T/CompanyName/Product Name&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>使用 Unity Shader 实现 GPU Hair</title>
