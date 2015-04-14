@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-  <title> unity_path_ios_android &middot; 破耳狼 </title>
+  <title> Unity3D常用路径解读（表格版本） &middot; 破耳狼 </title>
 
   
   <link rel="stylesheet" href="http://topdevil.com//css/poole.css">
@@ -21,6 +21,18 @@
 
   
   <link href="" rel="alternate" type="application/rss+xml" title="破耳狼" />
+  
+  
+			<link rel="stylesheet" href="http://topdevil.com//css/prettify.css">
+			<script src="http://topdevil.com//css/jquery.js"></script>
+			<script src="http://topdevil.com//css/prettify.js"></script>
+			<script type="text/javascript">
+				$(function(){
+				$("pre").addClass("prettyprint");
+					prettyPrint();
+				});
+			</script>
+			
 </head>
 
 <body>
@@ -46,7 +58,7 @@
 
     <div class="content container">
 <div class="post">
-  <h1>unity_path_ios_android</h1>
+  <h1>Unity3D常用路径解读（表格版本）</h1>
   <span class="post-date">Tue, Apr 14, 2015</span>
       
 
@@ -63,14 +75,14 @@
 <tbody>
 <tr>
 <td>Application.<strong>dataPath</strong></td>
-<td>打包时就固化了，可以读取“sceneName.unity3d”(待验证)</td>
+<td>打包时内容以固定，不能更改，可以读取“sceneName.unity3d”(待验证)</td>
 <td>只读</td>
 <td>yes</td>
 </tr>
 
 <tr>
 <td>Application.<strong>streamingAssetsPath</strong></td>
-<td>程序员在Unity项目的Assets文件夹下手动创建的&rdquo;StreamingAssets&rdquo;目录，可以存放xml、json、jpg、mp4等等文件，手机平台上只读。</td>
+<td>打包时内容以固定，不能更改，程序员在Unity项目的Assets文件夹下手动创建的&rdquo;StreamingAssets&rdquo;目录，可以存放xml、json、jpg、mp4等等文件，手机平台上只读，台式机可以读写。</td>
 <td>只读</td>
 <td>yes</td>
 </tr>
