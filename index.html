@@ -64,8 +64,8 @@
 <tr>
 <th>Unity目录</th>
 <th>特性</th>
-<th>读写权限</th>
-<th>是否会被iTunes备份（ios下）</th>
+<th>权限</th>
+<th>iTunes备份（ios）</th>
 </tr>
 </thead>
 
@@ -86,7 +86,7 @@
 
 <tr>
 <td>Application.<strong>persistentDataPath</strong></td>
-<td>暴露给用户的数据或图片目录，当然也可以存放app生成的文件或下载文件。此目录会被备份到iTunes并同步到其它苹果设备（如果用户有多台iPhone的话），但是app审核上线期间不要在这个目录占用太多，否则有可能会通不过审核，如果更新包很大的话，推荐使用Application.<strong>temporaryCachePath</strong> 存放下载更新包。</td>
+<td>用户使用过程中产生的数据，比如分享截图、下载音乐等等。此目录暴露给用户，用户打开iTunes就看得见，当然此目录也可以存放app生成的文件或下载文件。此目录会被备份到iTunes并同步到其它苹果设备（如果用户有多台iPhone的话），但是app审核上线期间不要在这个目录占用太多，否则有可能会通不过审核，如果更新包很大的话，推荐使用Application.<strong>temporaryCachePath</strong> 存放下载更新包。</td>
 <td>读写</td>
 <td>yes</td>
 </tr>
@@ -100,6 +100,8 @@
 </tbody>
 </table>
 
+<p>关于ios的目录权限，可进一步参考 <a href="https://developer.apple.com/library/ios/documentation/FileManagement/Conceptual/FileSystemProgrammingGuide/FileSystemOverview/FileSystemOverview.html">这里</a> 和 <a href="https://developer.apple.com/icloud/documentation/data-storage/index.html">这里</a>。</p>
+
 <p>streamingAssetsPath下的文件读取方法是：
 <pre><code>#if UNITY_EDITOR
     string filepath = Application.dataPath +&ldquo;/StreamingAssets&rdquo;+&ldquo;/my.xml&rdquo;;
@@ -111,10 +113,10 @@
 
 <h3 id="ios:16683e76e14a70877b630ac3dd20e29c">IOS:</h3>
 
-<pre><code>Application.dataPath :             Application/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/xxx.app/Data
-Application.streamingAssetsPath :  Application/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/xxx.app/Data/Raw
-Application.persistentDataPath :   Application/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Documents
-Application.temporaryCachePath :   Application/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Library/Caches</code></pre>
+<pre><code>Application.dataPath :             Application/xxxx-xxxx-xxxx-xxxxxxxxxxxx/xxx.app/Data
+Application.streamingAssetsPath :  Application/xxxx-xxxx-xxxxxxxxxxxx/xxx.app/Data/Raw
+Application.persistentDataPath :   Application/xxxx-xxxx-xxxxxxxxxxxx/Documents
+Application.temporaryCachePath :   Application/xxxx-xxxx-xxxxxxxxxxxx/Library/Caches</code></pre>
 
 <h3 id="android:16683e76e14a70877b630ac3dd20e29c">Android:</h3>
 

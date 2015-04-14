@@ -22,8 +22,8 @@
 &lt;tr&gt;
 &lt;th&gt;Unity目录&lt;/th&gt;
 &lt;th&gt;特性&lt;/th&gt;
-&lt;th&gt;读写权限&lt;/th&gt;
-&lt;th&gt;是否会被iTunes备份（ios下）&lt;/th&gt;
+&lt;th&gt;权限&lt;/th&gt;
+&lt;th&gt;iTunes备份（ios）&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 
@@ -44,7 +44,7 @@
 
 &lt;tr&gt;
 &lt;td&gt;Application.&lt;strong&gt;persistentDataPath&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;暴露给用户的数据或图片目录，当然也可以存放app生成的文件或下载文件。此目录会被备份到iTunes并同步到其它苹果设备（如果用户有多台iPhone的话），但是app审核上线期间不要在这个目录占用太多，否则有可能会通不过审核，如果更新包很大的话，推荐使用Application.&lt;strong&gt;temporaryCachePath&lt;/strong&gt; 存放下载更新包。&lt;/td&gt;
+&lt;td&gt;用户使用过程中产生的数据，比如分享截图、下载音乐等等。此目录暴露给用户，用户打开iTunes就看得见，当然此目录也可以存放app生成的文件或下载文件。此目录会被备份到iTunes并同步到其它苹果设备（如果用户有多台iPhone的话），但是app审核上线期间不要在这个目录占用太多，否则有可能会通不过审核，如果更新包很大的话，推荐使用Application.&lt;strong&gt;temporaryCachePath&lt;/strong&gt; 存放下载更新包。&lt;/td&gt;
 &lt;td&gt;读写&lt;/td&gt;
 &lt;td&gt;yes&lt;/td&gt;
 &lt;/tr&gt;
@@ -58,6 +58,8 @@
 &lt;/tbody&gt;
 &lt;/table&gt;
 
+&lt;p&gt;关于ios的目录权限，可进一步参考 &lt;a href=&#34;https://developer.apple.com/library/ios/documentation/FileManagement/Conceptual/FileSystemProgrammingGuide/FileSystemOverview/FileSystemOverview.html&#34;&gt;这里&lt;/a&gt; 和 &lt;a href=&#34;https://developer.apple.com/icloud/documentation/data-storage/index.html&#34;&gt;这里&lt;/a&gt;。&lt;/p&gt;
+
 &lt;p&gt;streamingAssetsPath下的文件读取方法是：
 &lt;pre&gt;&lt;code&gt;#if UNITY_EDITOR
     string filepath = Application.dataPath +&amp;ldquo;/StreamingAssets&amp;rdquo;+&amp;ldquo;/my.xml&amp;rdquo;;
@@ -69,10 +71,10 @@
 
 &lt;h3 id=&#34;ios:16683e76e14a70877b630ac3dd20e29c&#34;&gt;IOS:&lt;/h3&gt;
 
-&lt;pre&gt;&lt;code&gt;Application.dataPath :             Application/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/xxx.app/Data
-Application.streamingAssetsPath :  Application/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/xxx.app/Data/Raw
-Application.persistentDataPath :   Application/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Documents
-Application.temporaryCachePath :   Application/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Library/Caches&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;Application.dataPath :             Application/xxxx-xxxx-xxxx-xxxxxxxxxxxx/xxx.app/Data
+Application.streamingAssetsPath :  Application/xxxx-xxxx-xxxxxxxxxxxx/xxx.app/Data/Raw
+Application.persistentDataPath :   Application/xxxx-xxxx-xxxxxxxxxxxx/Documents
+Application.temporaryCachePath :   Application/xxxx-xxxx-xxxxxxxxxxxx/Library/Caches&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h3 id=&#34;android:16683e76e14a70877b630ac3dd20e29c&#34;&gt;Android:&lt;/h3&gt;
 
