@@ -22,7 +22,6 @@
 &lt;tr&gt;
 &lt;th&gt;Unity目录&lt;/th&gt;
 &lt;th&gt;特性&lt;/th&gt;
-&lt;th&gt;权限&lt;/th&gt;
 &lt;th&gt;iTunes备份（ios）&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
@@ -30,29 +29,25 @@
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;Application.&lt;strong&gt;dataPath&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;打包时内容已固定，不能更改，可以读取“sceneName.unity3d”(待验证)&lt;/td&gt;
-&lt;td&gt;只读&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;只读&lt;/strong&gt; ，打包时内容已固定，不能更改，可以读取“sceneName.unity3d”(待验证)&lt;/td&gt;
 &lt;td&gt;yes&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;Application.&lt;strong&gt;streamingAssetsPath&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;打包时内容已固定，不能更改，程序员在Unity项目的Assets文件夹下手动创建的&amp;rdquo;StreamingAssets&amp;rdquo;目录，可以存放xml、json、jpg、mp4等等文件，手机平台上只读，台式机可以读写。&lt;/td&gt;
-&lt;td&gt;只读&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;只读&lt;/strong&gt; ，打包时内容已固定，不能更改，程序员在Unity项目的Assets文件夹下手动创建的&amp;rdquo;StreamingAssets&amp;rdquo;目录，可以存放xml、json、jpg、mp4等等文件，手机平台上只读，台式机可以读写。&lt;/td&gt;
 &lt;td&gt;yes&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;Application.&lt;strong&gt;persistentDataPath&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;用户使用过程中产生的数据，比如分享截图、下载音乐等等。此目录暴露给用户，用户打开iTunes就看得见，当然此目录也可以存放app生成的文件或下载文件。此目录会被备份到iTunes并同步到其它苹果设备（如果用户有多台iPhone的话），但是app审核上线期间不要在这个目录占用太多，否则有可能会通不过审核，如果更新包很大的话，推荐使用Application.&lt;strong&gt;temporaryCachePath&lt;/strong&gt; 存放下载更新包。&lt;/td&gt;
-&lt;td&gt;读写&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;可读可写&lt;/strong&gt;，用户使用过程中产生的数据，比如分享截图、下载音乐等等。此目录暴露给用户，用户打开iTunes就看得见，当然此目录也可以存放app生成的文件或下载文件。此目录会被备份到iTunes并同步到其它苹果设备（如果用户有多台iPhone的话），但是app审核上线期间不要在这个目录占用太多，否则有可能会通不过审核，如果更新包很大的话，推荐使用Application.&lt;strong&gt;temporaryCachePath&lt;/strong&gt; 存放下载更新包。&lt;/td&gt;
 &lt;td&gt;yes&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;Application.&lt;strong&gt;temporaryCachePath&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;不会被iTunes备份，但也不会被删除，会一直保留在当前设备。&lt;/td&gt;
-&lt;td&gt;读写&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;可读可写&lt;/strong&gt;，不会被iTunes备份，但也不会被删除，会一直保留在当前设备。&lt;/td&gt;
 &lt;td&gt;no&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
