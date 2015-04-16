@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2">
 
-  <title> 破耳狼 &middot; 破耳狼 </title>
+  <title> 破耳狼 </title>
 
   
   <link rel="stylesheet" href="http://moketao.gitcafe.io//css/poole.css">
@@ -90,20 +90,19 @@
 </div>
 
 
-    <div class="content container">
-<div class="posts">
+<div class="content container">
+      <div class="posts">
+            
+                    <div class="post">
+                      <h1 class="post-title">
+                        <a href="http://moketao.gitcafe.io/unity_path_ios_android/">
+                          Unity3D常用路径解读（表格版本）
+                        </a>
+                      </h1>
 
-      
-  <div class="post">
-    <h1 class="post-title">
-      <a href="http://moketao.gitcafe.io/unity_path_ios_android/">
-        Unity3D常用路径解读（表格版本）
-      </a>
-    </h1>
+                      <span class="post-date">2015-04-24</span>
 
-    <span class="post-date">2015-04-24</span>
-
-    
+                      <p>关于Unity的资源路径和权限，网上的资料都很零散，于是我打算用表格来解释清楚。</p>
 
 <table>
 <thead>
@@ -141,57 +140,23 @@
 </tbody>
 </table>
 
-<p>关于ios的目录权限，可进一步参考 <a href="https://developer.apple.com/library/ios/documentation/FileManagement/Conceptual/FileSystemProgrammingGuide/FileSystemOverview/FileSystemOverview.html">这里</a> 和 <a href="https://developer.apple.com/icloud/documentation/data-storage/index.html">这里</a>。</p>
+                      
+                          <div class="read-more-link">
+                              <a href="/unity_path_ios_android/">Read More…</a>
+                          </div>
+                      
+                    </div>
+            
+                    <div class="post">
+                      <h1 class="post-title">
+                        <a href="http://moketao.gitcafe.io/unity_shader_gpu_hair/">
+                          使用 Unity Shader 实现 GPU Hair
+                        </a>
+                      </h1>
 
-<p>streamingAssetsPath下的文件读取方法是：
-<pre><code>#if UNITY_EDITOR
-    string filepath = Application.dataPath +&ldquo;/StreamingAssets&rdquo;+&ldquo;/my.xml&rdquo;;
-#elif UNITY_IPHONE
-    string filepath = Application.dataPath +&ldquo;/Raw&rdquo;+&ldquo;/my.xml&rdquo;;
-#elif UNITY_ANDROID
-    string filepath = &ldquo;jar:file://&rdquo; + Application.dataPath + &ldquo;!/assets/&rdquo;+&ldquo;/my.xml;
-</code></pre></p>
+                      <span class="post-date">2015-04-94</span>
 
-<h3 id="ios:16683e76e14a70877b630ac3dd20e29c">IOS:</h3>
-
-<pre><code>Application.dataPath :             Application/xxxx-xxxx-xxxx-xxxxxxxxxxxx/xxx.app/Data
-Application.streamingAssetsPath :  Application/xxxx-xxxx-xxxxxxxxxxxx/xxx.app/Data/Raw
-Application.persistentDataPath :   Application/xxxx-xxxx-xxxxxxxxxxxx/Documents
-Application.temporaryCachePath :   Application/xxxx-xxxx-xxxxxxxxxxxx/Library/Caches</code></pre>
-
-<h3 id="android:16683e76e14a70877b630ac3dd20e29c">Android:</h3>
-
-<pre><code>Application.dataPath :                /data/app/xxx.xxx.xxx.apk
-Application.streamingAssetsPath :     jar:file:///data/app/xxx.xxx.xxx.apk/!/assets
-Application.persistentDataPath :      /data/data/xxx.xxx.xxx/files
-Application.temporaryCachePath :      /data/data/xxx.xxx.xxx/cache</code></pre>
-
-<h3 id="windows:16683e76e14a70877b630ac3dd20e29c">Windows:</h3>
-
-<pre><code>Application.dataPath :                /Assets
-Application.streamingAssetsPath :     /Assets/StreamingAssets
-Application.persistentDataPath :      C:/Users/xxxx/AppData/LocalLow/CompanyName/ProductName
-Application.temporaryCachePath :      C:/Users/xxxx/AppData/Local/Temp/CompanyName/ProductName</code></pre>
-
-<h3 id="mac:16683e76e14a70877b630ac3dd20e29c">Mac:</h3>
-
-<pre><code>Application.dataPath :                /Assets
-Application.streamingAssetsPath :     /Assets/StreamingAssets
-Application.persistentDataPath :      /Users/xxxx/Library/Caches/CompanyName/Product Name
-Application.temporaryCachePath :      /var/folders/57/6b4_9w8113x2fsmzx_yhrhvh0000gn/T/CompanyName/Product Name</code></pre>
-
-  </div>
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="http://moketao.gitcafe.io/unity_shader_gpu_hair/">
-        使用 Unity Shader 实现 GPU Hair
-      </a>
-    </h1>
-
-    <span class="post-date">2015-04-94</span>
-
-    <p>本来想用 <strong>Unity</strong> <strong>布料系统</strong> 实现头发或飘带等效果，但是使用过后，发现非常消耗性能。
+                      <p>本来想用 <strong>Unity</strong> <strong>布料系统</strong> 实现头发或飘带等效果，但是使用过后，发现非常消耗性能。
 所以不得不研究别的办法。
 下面是我的实现方法，<strong>GPU Hair</strong>：
 <img src="/img/gpuhair.png" alt="" />
@@ -242,82 +207,41 @@ Shader "Custom/GPUHair"{
 }
 </pre>
 
-<p>另外，场景里对应的网格物体，需要再挂一个脚本：</p>
+                      
+                          <div class="read-more-link">
+                              <a href="/unity_shader_gpu_hair/">Read More…</a>
+                          </div>
+                      
+                    </div>
+            
+                    <div class="post">
+                      <h1 class="post-title">
+                        <a href="http://moketao.gitcafe.io/sublime_autocomplete/">
+                          用sublime写shader也可以有 autocomplete（笨办法）
+                        </a>
+                      </h1>
 
-<pre>
-using UnityEngine;
-using System.Collections;
+                      <span class="post-date">2015-04-84</span>
 
-public class DelayPoint : MonoBehaviour {
+                      <p>编写 Unity 的Shader，最痛苦的就是没有代码 <strong>自动完成</strong> 的代码提示了，今天装了 <strong>Sublime Text</strong>，只有高亮，于是想出一种超龊的办法，在前面粘贴一段类似的注释代码，如图：</p>
 
-    public GameObject delayPoint;//尾部
-    public float delayTime = 0.5f;
+                      
+                          <div class="read-more-link">
+                              <a href="/sublime_autocomplete/">Read More…</a>
+                          </div>
+                      
+                    </div>
+            
+                    <div class="post">
+                      <h1 class="post-title">
+                        <a href="http://moketao.gitcafe.io/dxsdk_install_err/">
+                          dxsdk 安装过程中报错: S1023
+                        </a>
+                      </h1>
 
-    private Transform t1;//网格物体中心点所在位置（发根）
-    private Transform t2;//尾部所在位置（发梢）
-    private Vector3 distanceToT1;//尾部到中心的距离
+                      <span class="post-date">2015-04-54</span>
 
-    private Vector3 velocity = Vector3.zero;//当前速度
-    private Vector3 targetPoint = Vector3.zero;//跟随点
-
-    void Start () {
-        t1 = transform;
-        t2 = delayPoint.transform;
-        distanceToT1 = t2.position - t1.position;
-    }
-    
-    void Update () {
-        targetPoint = t1.position + distanceToT1;
-        Vector3 newPos = Vector3.SmoothDamp(t2.position, targetPoint, ref velocity, delayTime);//尾部的缓动效果
-        t2.position = newPos;
-        Renderer render = t1.GetComponent<Renderer>();
-        render.material.SetVector("_DelayPoint", t2.position);//将尾部的坐标传送给显卡
-    }
-}
-</pre>
-
-<p>具体使用方法：</p>
-
-<ol>
-<li>建立一个plane，大小默认（边长是10），或者用3dsmax建模。</li>
-<li>给plane加上脚本和材质，材质的Shader指定为 Custom/GPUHair。</li>
-<li>建立一个空物体，放置到plane边缘，大概是（5,0,0）的位置。</li>
-<li>在脚本上你会看见一个delayPoint的属性，把空物体拖拽到这个属性上。</li>
-<li>点击播放按钮。</li>
-</ol>
-
-<p>将来可能会支持碰撞检测，大致的思路已经有了，支持一个碰撞圆应该没问题。</p>
-
-  </div>
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="http://moketao.gitcafe.io/sublime_autocomplete/">
-        用sublime写shader也可以有 autocomplete（笨办法）
-      </a>
-    </h1>
-
-    <span class="post-date">2015-04-84</span>
-
-    <p>编写 Unity 的Shader，最痛苦的就是没有代码 <strong>自动完成</strong> 的代码提示了，今天装了 <strong>Sublime Text</strong>，只有高亮，于是想出一种超龊的办法，在前面粘贴一段类似的注释代码，如图：</p>
-
-<p><img src="/img/subl_auto.png" alt="sublime_unity_shader_auto_complete" />
-</p>
-
-  </div>
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="http://moketao.gitcafe.io/dxsdk_install_err/">
-        dxsdk 安装过程中报错: S1023
-      </a>
-    </h1>
-
-    <span class="post-date">2015-04-54</span>
-
-    
-
-<p>安装directx sdk 报错： errors were encountered during installation of redistributable package s1023</p>
+                      <p>安装directx sdk 报错： errors were encountered during installation of redistributable package s1023</p>
 
 <h3 id="解决步奏:31e555ba754a60275651e451df32011c">解决步奏:</h3>
 
@@ -334,18 +258,23 @@ MsiExec.exe /passive /X{1D8E6291-B0D5-35EC-8441-6616F567A0F7}
 
 <p>英文解决方案原帖，点 <a href="http://blogs.msdn.com/b/chuckw/archive/2011/12/09/known-issue-directx-sdk-june-2010-setup-and-the-s1023-error.aspx">这里</a></p>
 
-  </div>
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="http://moketao.gitcafe.io/unityvs_install/">
-        UnityVS 安装与使用
-      </a>
-    </h1>
+                      
+                          <div class="read-more-link">
+                              <a href="/dxsdk_install_err/">Read More…</a>
+                          </div>
+                      
+                    </div>
+            
+                    <div class="post">
+                      <h1 class="post-title">
+                        <a href="http://moketao.gitcafe.io/unityvs_install/">
+                          UnityVS 安装与使用
+                        </a>
+                      </h1>
 
-    <span class="post-date">2015-04-54</span>
+                      <span class="post-date">2015-04-54</span>
 
-    <ol>
+                      <ol>
 <li>先安装 <strong>VS2013</strong>。</li>
 <li>然后再安装 <strong>UnityVS</strong> ，UnityVS在2014年被微软收购，所以现在是免费的，感谢微软。VS2013对应UnityVS 2013，从<a href="https://visualstudiogallery.msdn.microsoft.com/20b80b8c-659b-45ef-96c1-437828fe7cf2">这里</a>下载，下载页面可以选择其他版本的UnityVS，比如2015版本的。</li>
 <li>进入Unity，导入UnityVS包。</li>
@@ -353,34 +282,42 @@ MsiExec.exe /passive /X{1D8E6291-B0D5-35EC-8441-6616F567A0F7}
 <li>这个时候再去新建 C# ，双击即可打开VS2013.</li>
 </ol>
 
-  </div>
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="http://moketao.gitcafe.io/3dgirl/">
-        最近做的妹子
-      </a>
-    </h1>
+                      
+                          <div class="read-more-link">
+                              <a href="/unityvs_install/">Read More…</a>
+                          </div>
+                      
+                    </div>
+            
+                    <div class="post">
+                      <h1 class="post-title">
+                        <a href="http://moketao.gitcafe.io/3dgirl/">
+                          最近做的妹子
+                        </a>
+                      </h1>
 
-    <span class="post-date">2015-04-114</span>
+                      <span class="post-date">2015-04-114</span>
 
-    <p><img src="/img/idle08.jpg" alt="" />
+                      <p><img src="/img/idle08.jpg" alt="" />
 </p>
 
-  </div>
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="http://moketao.gitcafe.io/Golang_cuda_Windows/">
-        Golang、cuda、Windows 开发环境搭建
-      </a>
-    </h1>
+                      
+                          <div class="read-more-link">
+                              <a href="/3dgirl/">Read More…</a>
+                          </div>
+                      
+                    </div>
+            
+                    <div class="post">
+                      <h1 class="post-title">
+                        <a href="http://moketao.gitcafe.io/Golang_cuda_Windows/">
+                          Golang、cuda、Windows 开发环境搭建
+                        </a>
+                      </h1>
 
-    <span class="post-date">2015-04-104</span>
+                      <span class="post-date">2015-04-104</span>
 
-    
-
-<h2 id="步骤:cb248cbf25583db7cd96fd4710d513a3">步骤</h2>
+                      <h2 id="步骤:cb248cbf25583db7cd96fd4710d513a3">步骤</h2>
 
 <ol>
 <li>因为我的系统是 Win7 64位的，所以先装<strong>Mingw-w64</strong>，下载地址：<a href="http://sourceforge.net/projects/mingw-w64/">http://sourceforge.net/projects/mingw-w64/</a>
@@ -412,20 +349,23 @@ import "C"
 
 <p>斜杠注释不要去掉，golang能读，import &ldquo;C&rdquo;那一行必须与上一行<strong>紧贴</strong>，中间不能有空行。</p>
 
-  </div>
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="http://moketao.gitcafe.io/about/">
-        关于我
-      </a>
-    </h1>
+                      
+                          <div class="read-more-link">
+                              <a href="/Golang_cuda_Windows/">Read More…</a>
+                          </div>
+                      
+                    </div>
+            
+                    <div class="post">
+                      <h1 class="post-title">
+                        <a href="http://moketao.gitcafe.io/about/">
+                          关于我
+                        </a>
+                      </h1>
 
-    <span class="post-date">2015-04-14</span>
+                      <span class="post-date">2015-04-14</span>
 
-    
-
-<h2 id="联系方式:6083a88ee3411b0d17ce02d738f69d47">联系方式</h2>
+                      <h2 id="联系方式:6083a88ee3411b0d17ce02d738f69d47">联系方式</h2>
 
 <ul>
 <li>name 莫克陶</li>
@@ -440,10 +380,15 @@ import "C"
 <li>2013 www.zqgame.com.cn</li>
 </ul>
 
-  </div>
-  
-</div>
+                      
+                          <div class="read-more-link">
+                              <a href="/about/">Read More…</a>
+                          </div>
+                      
+                    </div>
+            
+      </div>
 </div>
 
-  </body>
+</body>
 </html>

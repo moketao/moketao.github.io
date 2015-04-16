@@ -17,6 +17,8 @@
       <guid>http://moketao.gitcafe.io/unity_path_ios_android/</guid>
       <description>
 
+&lt;p&gt;关于Unity的资源路径和权限，网上的资料都很零散，于是我打算用表格来解释清楚。&lt;/p&gt;
+
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -263,6 +265,8 @@ MsiExec.exe /passive /X{1D8E6291-B0D5-35EC-8441-6616F567A0F7}
       <guid>http://moketao.gitcafe.io/3dgirl/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;http://moketao.gitcafe.io/img/idle08.jpg&#34; alt=&#34;&#34; /&gt;
 &lt;/p&gt;
+
+&lt;p&gt;整体风格，我尽量做的偏东方女性的风格。&lt;/p&gt;
 </description>
     </item>
     
