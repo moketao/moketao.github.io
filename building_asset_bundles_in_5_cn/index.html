@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2">
+
+  <title> BuildingAssetBundles in 5.x 中文简译 </title>
+
+  
+  <link rel="stylesheet" href="http://moketao.gitcafe.io//css/poole.css">
+  <link rel="stylesheet" href="http://moketao.gitcafe.io//css/syntax.css">
+  <link rel="stylesheet" href="http://moketao.gitcafe.io//css/hyde.css">
+  <link rel="stylesheet" href="http://fonts.useso.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="破耳狼" />
+  
+  
+			<link rel="stylesheet" href="http://moketao.gitcafe.io//css/prettify.css">
+			<script src="http://moketao.gitcafe.io//css/jquery.js"></script>
+			<script src="http://moketao.gitcafe.io//css/prettify.js"></script>
+			<script type="text/javascript">
+        function lineDistance( point1, point2 )
+        {
+          var xs = 0;
+          var ys = 0;
+         
+          xs = point2.x - point1.x;
+          xs = xs * xs;
+         
+          ys = point2.y - point1.y;
+          ys = ys * ys;
+         
+          return Math.sqrt( xs + ys );
+        }
+				$(function(){
+				$("pre").addClass("prettyprint linenums");
+					prettyPrint();
+          $("pre").on("mousedown",function(e){
+              var me = $(this);
+              me.data("posx",e.pageX);
+              me.data("posy",e.pageY);
+          });
+          $("pre").on("mouseup",function(e){
+              var me = $(this);
+              me.data("posx");
+              var p1 = {x:me.data("posx"),y:me.data("posy")};
+              var p2 = {x:e.pageX,y:e.pageY};
+              if(lineDistance(p2,p1)<10){
+                var has = me.data("hasclick");
+                if(has){
+                  me.width(me.width()/3.2);
+                  me.data("hasclick",false);
+                }else{
+                  me.width(me.width()*3.2);
+                  me.data("hasclick",true);
+                }
+              }
+          });
+				});
+
+			</script>
+</head>
+
+<body>
+
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>破耳狼</h1>
+      <p class="lead">
+      美术与程序双工<br/>GitHub Url : <a href="http://github.com/moketao">GitHub.com/moketao</a>
+      </p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li><a href="/">Home</a> </li>
+      
+    </ul>
+
+    <p>&copy; 2015. All rights reserved. </p>
+  </div>
+</div>
+
+
+    <div class="content container">
+<div class="post">
+  <h1>BuildingAssetBundles in 5.x 中文简译</h1>
+  <span class="post-date">Thu, Apr 16, 2015</span>
+      
+
+<p>每篇博文的诞生，都是因为世界不够完美。</p>
+
+<p>这不，Unity5刚出来，打包流程和之前差别较大，国内搜到的都是关于4.6的文章。</p>
+
+<p>言归正传，以下简单翻译，英文原文在 <a href="http://docs.unity3d.com/Manual/BuildingAssetBundles5x.html">这里</a>。</p>
+
+<p>AssetBundles说白了就是一种的压缩包，挂着服务器上让玩家下载更新游戏资源。</p>
+
+<p>Unity 4.x 的环境里，都是用脚本去创建 AssetBundles （以下简称<strong>AB</strong>）。
+Unity5.x为了简化流程，添加了可视化工具。当你选择某个资源的时候，比如一张图片，你会发现在屏幕右下角，多了两个关于AssetBundles的下拉菜单。在第一个菜单里，你可以新建一个<strong>AB</strong>，或者将当前资源归到某个你已经建好的<strong>AB</strong>里。第二个下拉菜单是指定变体的，默认是没有变体的，但你可以新建。比如sd变体（标清版）和hd变体（高清版），具体说：</p>
+
+<p>你可以仅仅指定一个名为foo的<strong>AB</strong>。这样就没有变体一说，整个世界很干净。可是，如果你新建了一个foo的<strong>AB</strong>，又给这个<strong>AB</strong>新增了两个变体，sd和hd，那么，将来导出资源包的时候，就不是foo这个包，而是foo.sd和foo.hd两个包。世界变得很脏，但随之而来的好处是，你可以在某些情况下，切换标清和高清画质。</p>
+
+<h1 id="ab导出:efc30dcb7244a334a10687b605945d4b">AB导出</h1>
+
+<p>说的有点抽象，接下来实验一下就清楚了，先复制如下代码：</p>
+
+<pre>
+using UnityEditor;
+using UnityEngine;
+public class CreateAssetBundles
+{
+    [MenuItem ("Assets/★Build AssetBundles")]
+    static void BuildAllAssetBundles ()
+    {
+        BuildPipeline.BuildAssetBundles ("c:/abs",BuildAssetBundleOptions.UncompressedAssetBundle);
+    }
+}
+//使用BuildAssetBundleOptions.UncompressedAssetBundle这个参数，是为了不压缩，
+//否则后面用 AssetBundle.CreateFromFile 读取会报错，AssetBundle.CreateFromFile 不支持压缩格式。
+//当然，用 WWW.LoadFromCacheOrDownload 这个函数，是支持压缩格式的。
+//只是程序写法上，比较蛋疼这个后面会讲到。
+</pre>
+
+<p>然后：</p>
+
+<ol>
+<li>在c盘建立一个名为 abs 的目录，当然，名字是随意的。</li>
+<li>在Assets目录下新建一个Plugin目录。</li>
+<li>在Plugin目录下创建一个名字叫做 CreateAssetBundles 的脚本。</li>
+<li>把上面那段代码粘贴到 CreateAssetBundles里面。</li>
+<li>随便选择一张贴图，将它分配到一个<strong>AB</strong>里，没有就新建一个<strong>AB</strong>，是否新建变体，新建多少个变体，就随便你了。</li>
+<li>在Unity的 Assets 菜单里，你会看见我们刚刚创建的“★Build AssetBundles”菜单，点它，然后去 c:/abs 看看有没有生成什么东西。</li>
+</ol>
+
+<p>上面那段代码也可以改成这样：
+<pre>
+using UnityEditor;
+using UnityEngine;
+public class CreateAssetBundles
+{
+    [MenuItem (&ldquo;Assets/★Build AssetBundles&rdquo;)]
+    static void BuildAllAssetBundles ()
+    {
+        BuildPipeline.BuildAssetBundles (Application.streamingAssetsPath+ &ldquo;/AssetBundles&rdquo;,BuildAssetBundleOptions.UncompressedAssetBundle);
+    }
+}
+//需要注意的是：Assets目录下必须存在 StreamingAssets 目录，
+//并且StreamingAssets目录下必须存在 AssetBundles目录，没有就手动新建。
+</pre></p>
+
+<h1 id="ab加载:efc30dcb7244a334a10687b605945d4b">AB加载</h1>
+
+</div>
+
+  <div class="ds-thread" data-thread-key="/building_asset_bundles_in_5_cn/" data-title="BuildingAssetBundles in 5.x 中文简译" data-url="http://moketao.gitcafe.io/building_asset_bundles_in_5_cn/"></div>
+
+
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"topdevil"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+
+</div>
+
+  </body>
+</html>

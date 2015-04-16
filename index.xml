@@ -6,8 +6,81 @@
     <description>Recent content on 破耳狼</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 14 Apr 2015 14:26:54 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 16 Apr 2015 18:14:20 +0800</lastBuildDate>
     <atom:link href="http://moketao.gitcafe.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>BuildingAssetBundles in 5.x 中文简译</title>
+      <link>http://moketao.gitcafe.io/building_asset_bundles_in_5_cn/</link>
+      <pubDate>Thu, 16 Apr 2015 18:14:20 +0800</pubDate>
+      
+      <guid>http://moketao.gitcafe.io/building_asset_bundles_in_5_cn/</guid>
+      <description>
+
+&lt;p&gt;每篇博文的诞生，都是因为世界不够完美。&lt;/p&gt;
+
+&lt;p&gt;这不，Unity5刚出来，打包流程和之前差别较大，国内搜到的都是关于4.6的文章。&lt;/p&gt;
+
+&lt;p&gt;言归正传，以下简单翻译，英文原文在 &lt;a href=&#34;http://docs.unity3d.com/Manual/BuildingAssetBundles5x.html&#34;&gt;这里&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;AssetBundles说白了就是一种的压缩包，挂着服务器上让玩家下载更新游戏资源。&lt;/p&gt;
+
+&lt;p&gt;Unity 4.x 的环境里，都是用脚本去创建 AssetBundles （以下简称&lt;strong&gt;AB&lt;/strong&gt;）。
+Unity5.x为了简化流程，添加了可视化工具。当你选择某个资源的时候，比如一张图片，你会发现在屏幕右下角，多了两个关于AssetBundles的下拉菜单。在第一个菜单里，你可以新建一个&lt;strong&gt;AB&lt;/strong&gt;，或者将当前资源归到某个你已经建好的&lt;strong&gt;AB&lt;/strong&gt;里。第二个下拉菜单是指定变体的，默认是没有变体的，但你可以新建。比如sd变体（标清版）和hd变体（高清版），具体说：&lt;/p&gt;
+
+&lt;p&gt;你可以仅仅指定一个名为foo的&lt;strong&gt;AB&lt;/strong&gt;。这样就没有变体一说，整个世界很干净。可是，如果你新建了一个foo的&lt;strong&gt;AB&lt;/strong&gt;，又给这个&lt;strong&gt;AB&lt;/strong&gt;新增了两个变体，sd和hd，那么，将来导出资源包的时候，就不是foo这个包，而是foo.sd和foo.hd两个包。世界变得很脏，但随之而来的好处是，你可以在某些情况下，切换标清和高清画质。&lt;/p&gt;
+
+&lt;h1 id=&#34;ab导出:efc30dcb7244a334a10687b605945d4b&#34;&gt;AB导出&lt;/h1&gt;
+
+&lt;p&gt;说的有点抽象，接下来实验一下就清楚了，先复制如下代码：&lt;/p&gt;
+
+&lt;pre&gt;
+using UnityEditor;
+using UnityEngine;
+public class CreateAssetBundles
+{
+    [MenuItem (&#34;Assets/★Build AssetBundles&#34;)]
+    static void BuildAllAssetBundles ()
+    {
+        BuildPipeline.BuildAssetBundles (&#34;c:/abs&#34;,BuildAssetBundleOptions.UncompressedAssetBundle);
+    }
+}
+//使用BuildAssetBundleOptions.UncompressedAssetBundle这个参数，是为了不压缩，
+//否则后面用 AssetBundle.CreateFromFile 读取会报错，AssetBundle.CreateFromFile 不支持压缩格式。
+//当然，用 WWW.LoadFromCacheOrDownload 这个函数，是支持压缩格式的。
+//只是程序写法上，比较蛋疼这个后面会讲到。
+&lt;/pre&gt;
+
+&lt;p&gt;然后：&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;在c盘建立一个名为 abs 的目录，当然，名字是随意的。&lt;/li&gt;
+&lt;li&gt;在Assets目录下新建一个Plugin目录。&lt;/li&gt;
+&lt;li&gt;在Plugin目录下创建一个名字叫做 CreateAssetBundles 的脚本。&lt;/li&gt;
+&lt;li&gt;把上面那段代码粘贴到 CreateAssetBundles里面。&lt;/li&gt;
+&lt;li&gt;随便选择一张贴图，将它分配到一个&lt;strong&gt;AB&lt;/strong&gt;里，没有就新建一个&lt;strong&gt;AB&lt;/strong&gt;，是否新建变体，新建多少个变体，就随便你了。&lt;/li&gt;
+&lt;li&gt;在Unity的 Assets 菜单里，你会看见我们刚刚创建的“★Build AssetBundles”菜单，点它，然后去 c:/abs 看看有没有生成什么东西。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;上面那段代码也可以改成这样：
+&lt;pre&gt;
+using UnityEditor;
+using UnityEngine;
+public class CreateAssetBundles
+{
+    [MenuItem (&amp;ldquo;Assets/★Build AssetBundles&amp;rdquo;)]
+    static void BuildAllAssetBundles ()
+    {
+        BuildPipeline.BuildAssetBundles (Application.streamingAssetsPath+ &amp;ldquo;/AssetBundles&amp;rdquo;,BuildAssetBundleOptions.UncompressedAssetBundle);
+    }
+}
+//需要注意的是：Assets目录下必须存在 StreamingAssets 目录，
+//并且StreamingAssets目录下必须存在 AssetBundles目录，没有就手动新建。
+&lt;/pre&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;ab加载:efc30dcb7244a334a10687b605945d4b&#34;&gt;AB加载&lt;/h1&gt;
+</description>
+    </item>
     
     <item>
       <title>Unity3D常用路径解读（表格版本）</title>
@@ -197,7 +270,11 @@ public class DelayPoint : MonoBehaviour {
 &lt;li&gt;点击播放按钮。&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;将来可能会支持碰撞检测，大致的思路已经有了，支持一个碰撞圆应该没问题。&lt;/p&gt;
+&lt;p&gt;项目源码下载（Unity5导出，4.x版本不知道能不能打开）：
+&lt;a href=&#34;http://moketao.gitcafe.io/data/GPUHair.rar&#34;&gt;GPUHair.rar&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;如果要像虚幻引擎那样支持碰撞检测，应该也没问题，加入圆和半径的计算就可以了。
+当然，参与计算的圆越少越好，手游甚至可以不考虑碰撞。&lt;/p&gt;
 </description>
     </item>
     
