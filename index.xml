@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>破耳狼</title>
-    <link>http://topdevil.com/</link>
+    <link>http://moketao.gitcafe.io/</link>
     <description>Recent content on 破耳狼</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Tue, 14 Apr 2015 14:26:54 +0800</lastBuildDate>
-    <atom:link href="http://topdevil.com/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://moketao.gitcafe.io/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Unity3D常用路径解读（表格版本）</title>
-      <link>http://topdevil.com/unity_path_ios_android/</link>
+      <link>http://moketao.gitcafe.io/unity_path_ios_android/</link>
       <pubDate>Tue, 14 Apr 2015 14:26:54 +0800</pubDate>
       
-      <guid>http://topdevil.com/unity_path_ios_android/</guid>
+      <guid>http://moketao.gitcafe.io/unity_path_ios_android/</guid>
       <description>
 
 &lt;table&gt;
@@ -96,14 +96,14 @@ Application.temporaryCachePath :      /var/folders/57/6b4_9w8113x2fsmzx_yhrhvh00
     
     <item>
       <title>使用 Unity Shader 实现 GPU Hair</title>
-      <link>http://topdevil.com/unity_shader_gpu_hair/</link>
+      <link>http://moketao.gitcafe.io/unity_shader_gpu_hair/</link>
       <pubDate>Mon, 13 Apr 2015 09:39:39 +0800</pubDate>
       
-      <guid>http://topdevil.com/unity_shader_gpu_hair/</guid>
+      <guid>http://moketao.gitcafe.io/unity_shader_gpu_hair/</guid>
       <description>&lt;p&gt;本来想用 &lt;strong&gt;Unity&lt;/strong&gt; &lt;strong&gt;布料系统&lt;/strong&gt; 实现头发或飘带等效果，但是使用过后，发现非常消耗性能。
 所以不得不研究别的办法。
 下面是我的实现方法，&lt;strong&gt;GPU Hair&lt;/strong&gt;：
-&lt;img src=&#34;http://topdevil.com/img/gpuhair.png&#34; alt=&#34;&#34; /&gt;
+&lt;img src=&#34;http://moketao.gitcafe.io/img/gpuhair.png&#34; alt=&#34;&#34; /&gt;
 &lt;/p&gt;
 
 &lt;pre&gt;
@@ -201,23 +201,23 @@ public class DelayPoint : MonoBehaviour {
     
     <item>
       <title>用sublime写shader也可以有 autocomplete（笨办法）</title>
-      <link>http://topdevil.com/sublime_autocomplete/</link>
+      <link>http://moketao.gitcafe.io/sublime_autocomplete/</link>
       <pubDate>Fri, 10 Apr 2015 20:05:28 +0800</pubDate>
       
-      <guid>http://topdevil.com/sublime_autocomplete/</guid>
+      <guid>http://moketao.gitcafe.io/sublime_autocomplete/</guid>
       <description>&lt;p&gt;编写 Unity 的Shader，最痛苦的就是没有代码 &lt;strong&gt;自动完成&lt;/strong&gt; 的代码提示了，今天装了 &lt;strong&gt;Sublime Text&lt;/strong&gt;，只有高亮，于是想出一种超龊的办法，在前面粘贴一段类似的注释代码，如图：&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://topdevil.com/img/subl_auto.png&#34; alt=&#34;sublime_unity_shader_auto_complete&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;http://moketao.gitcafe.io/img/subl_auto.png&#34; alt=&#34;sublime_unity_shader_auto_complete&#34; /&gt;
 &lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>dxsdk 安装过程中报错: S1023</title>
-      <link>http://topdevil.com/dxsdk_install_err/</link>
+      <link>http://moketao.gitcafe.io/dxsdk_install_err/</link>
       <pubDate>Fri, 10 Apr 2015 17:47:19 +0800</pubDate>
       
-      <guid>http://topdevil.com/dxsdk_install_err/</guid>
+      <guid>http://moketao.gitcafe.io/dxsdk_install_err/</guid>
       <description>
 
 &lt;p&gt;安装directx sdk 报错： errors were encountered during installation of redistributable package s1023&lt;/p&gt;
@@ -241,10 +241,10 @@ MsiExec.exe /passive /X{1D8E6291-B0D5-35EC-8441-6616F567A0F7}
     
     <item>
       <title>UnityVS 安装与使用</title>
-      <link>http://topdevil.com/unityvs_install/</link>
+      <link>http://moketao.gitcafe.io/unityvs_install/</link>
       <pubDate>Wed, 08 Apr 2015 17:24:02 +0800</pubDate>
       
-      <guid>http://topdevil.com/unityvs_install/</guid>
+      <guid>http://moketao.gitcafe.io/unityvs_install/</guid>
       <description>&lt;ol&gt;
 &lt;li&gt;先安装 &lt;strong&gt;VS2013&lt;/strong&gt;。&lt;/li&gt;
 &lt;li&gt;然后再安装 &lt;strong&gt;UnityVS&lt;/strong&gt; ，UnityVS在2014年被微软收购，所以现在是免费的，感谢微软。VS2013对应UnityVS 2013，从&lt;a href=&#34;https://visualstudiogallery.msdn.microsoft.com/20b80b8c-659b-45ef-96c1-437828fe7cf2&#34;&gt;这里&lt;/a&gt;下载，下载页面可以选择其他版本的UnityVS，比如2015版本的。&lt;/li&gt;
@@ -257,21 +257,21 @@ MsiExec.exe /passive /X{1D8E6291-B0D5-35EC-8441-6616F567A0F7}
     
     <item>
       <title>最近做的妹子</title>
-      <link>http://topdevil.com/3dgirl/</link>
+      <link>http://moketao.gitcafe.io/3dgirl/</link>
       <pubDate>Wed, 08 Apr 2015 11:53:21 +0800</pubDate>
       
-      <guid>http://topdevil.com/3dgirl/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;http://topdevil.com/img/idle08.jpg&#34; alt=&#34;&#34; /&gt;
+      <guid>http://moketao.gitcafe.io/3dgirl/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://moketao.gitcafe.io/img/idle08.jpg&#34; alt=&#34;&#34; /&gt;
 &lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Golang、cuda、Windows 开发环境搭建</title>
-      <link>http://topdevil.com/Golang_cuda_Windows/</link>
+      <link>http://moketao.gitcafe.io/Golang_cuda_Windows/</link>
       <pubDate>Wed, 08 Apr 2015 10:51:57 +0800</pubDate>
       
-      <guid>http://topdevil.com/Golang_cuda_Windows/</guid>
+      <guid>http://moketao.gitcafe.io/Golang_cuda_Windows/</guid>
       <description>
 
 &lt;h2 id=&#34;步骤:cb248cbf25583db7cd96fd4710d513a3&#34;&gt;步骤&lt;/h2&gt;
@@ -310,10 +310,10 @@ import &#34;C&#34;
     
     <item>
       <title>关于我</title>
-      <link>http://topdevil.com/about/</link>
+      <link>http://moketao.gitcafe.io/about/</link>
       <pubDate>Tue, 07 Apr 2015 13:49:00 +0800</pubDate>
       
-      <guid>http://topdevil.com/about/</guid>
+      <guid>http://moketao.gitcafe.io/about/</guid>
       <description>
 
 &lt;h2 id=&#34;联系方式:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;联系方式&lt;/h2&gt;
