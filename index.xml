@@ -6,8 +6,23 @@
     <description>Recent content on 破耳狼</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 18 Apr 2015 16:46:25 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 18 Apr 2015 17:58:08 +0800</lastBuildDate>
     <atom:link href="http://moketao.gitcafe.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>ai_behavior_editor</title>
+      <link>http://moketao.gitcafe.io/ai_behavior_editor/</link>
+      <pubDate>Sat, 18 Apr 2015 17:58:08 +0800</pubDate>
+      
+      <guid>http://moketao.gitcafe.io/ai_behavior_editor/</guid>
+      <description>&lt;p&gt;关于AI编辑器，以前我有提到过，写在csdn的blog上。
+可以点&lt;strong&gt;&lt;a href=&#34;http://blog.csdn.net/mokt2001/article/details/23034309&#34;&gt;这里&lt;/a&gt;&lt;/strong&gt;查看。&lt;/p&gt;
+
+&lt;p&gt;这里补充一下演示视频：&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://121.40.174.8/ai.avi&#34;&gt;http://121.40.174.8/ai.avi&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>关于UI编辑器的一些实践和思考</title>
@@ -43,7 +58,7 @@
 &lt;p&gt;另外，最好是 XLayout 能够导出ui给多个引擎和项目组使用，那是最理想的状态。
 当然重口难调也是难免的。。。那就把UI编辑器拆分成轻量级的类库，让每个项目独立、快速的定制自己的UI编辑器，这或许也不错。&lt;/p&gt;
 
-&lt;p&gt;呵呵，也只是想想，不一定能实现。&lt;/p&gt;
+&lt;p&gt;呵呵，也只是想想，不一定能实现。。。&lt;/p&gt;
 </description>
     </item>
     
