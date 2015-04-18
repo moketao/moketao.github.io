@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2">
+
+  <title> 关于UI编辑器的一些实践和思考 </title>
+
+  
+  <link rel="stylesheet" href="http://moketao.gitcafe.io//css/poole.css">
+  <link rel="stylesheet" href="http://moketao.gitcafe.io//css/syntax.css">
+  <link rel="stylesheet" href="http://moketao.gitcafe.io//css/hyde.css">
+  <link rel="stylesheet" href="http://fonts.useso.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="破耳狼" />
+  
+  
+			<link rel="stylesheet" href="http://moketao.gitcafe.io//css/prettify.css">
+			<script src="http://moketao.gitcafe.io//css/jquery.js"></script>
+			<script src="http://moketao.gitcafe.io//css/prettify.js"></script>
+			<script type="text/javascript">
+        function lineDistance( point1, point2 )
+        {
+          var xs = 0;
+          var ys = 0;
+         
+          xs = point2.x - point1.x;
+          xs = xs * xs;
+         
+          ys = point2.y - point1.y;
+          ys = ys * ys;
+         
+          return Math.sqrt( xs + ys );
+        }
+				$(function(){
+				$("pre").addClass("prettyprint linenums");
+					prettyPrint();
+          $("pre").on("mousedown",function(e){
+              var me = $(this);
+              me.data("posx",e.pageX);
+              me.data("posy",e.pageY);
+          });
+          $("pre").on("mouseup",function(e){
+              var me = $(this);
+              me.data("posx");
+              var p1 = {x:me.data("posx"),y:me.data("posy")};
+              var p2 = {x:e.pageX,y:e.pageY};
+              if(lineDistance(p2,p1)<10){
+                var has = me.data("hasclick");
+                if(has){
+                  me.width(me.width()/3.2);
+                  me.data("hasclick",false);
+                }else{
+                  me.width(me.width()*3.2);
+                  me.data("hasclick",true);
+                }
+              }
+          });
+				});
+
+			</script>
+</head>
+
+<body>
+
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>破耳狼</h1>
+      <p class="lead">
+      美术与程序双工<br/>GitHub Url : <a href="http://github.com/moketao">GitHub.com/moketao</a>
+      </p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li><a href="/">Home</a> </li>
+      
+    </ul>
+
+    <p>&copy; 2015. All rights reserved. </p>
+  </div>
+</div>
+
+
+    <div class="content container">
+<div class="post">
+  <h1>关于UI编辑器的一些实践和思考</h1>
+  <span class="post-date">Sat, Apr 18, 2015</span>
+      <p>经历了3个项目，都是前端程序员写死的UI，没有编辑器的概念，全是程序员写死的UI布局，企业都没有想到这方面的传承，也很少有主程序会去关注UI编辑器，或者是我遇到的主程还不够多？</p>
+
+<p>后来忍不住写了一个叫做 XLayout 的 UI编辑器，基于 Starling 和 FeathersUI 的百分比布局模式，导出成 xml 或者 json，通过配置加载和读取，在游戏中“反射”回来。</p>
+
+<p>只有UI编辑器实现了，并且成熟了，前端才不需要那么多程序员，或者说前端程序员可以多用点时间在别的事情上，而不是整天跟那堆UI代码死磕。</p>
+
+<p>当然了，Flex4.6 也早就实现了类似的功能，可惜现在连 FlashBuilder 4.7 都不再维护了。</p>
+
+<p>下面是几张 XLayout 的截图：</p>
+
+<p><img src="/img/u00.png" alt="" />
+
+↑对于属性编辑面板，我自己还是比较满意的。只要某控件实现了指定的接口，就可以在属性面板上显示它想要呈现给编辑者的任意多个属性，并支持下拉选项，数值，字符串等类型。另外还支持了拖拽 Label区域来改变数值的功能，以及颜色拾取器、图片拾取的功能。</p>
+
+<p><img src="/img/u01.png" alt="" />
+
+↑而对于百分比布局面板，就不太满意了，主要是因为这几天，我试用了Unity迟来的、新的GUI系统（简称 <strong>UGUI</strong>），才有这样的感觉的。下面是 <strong>UGUI</strong> 的截图，我感觉下面这个布局面板(Rect transform)，是 <strong>UGUI</strong> 最有价值的功能，没有之一，这个面板集合了绝对定位和相对定位的概念在里面，用了就回不去了↓：
+<img src="/img/u02.png" alt="" />
+
+↑当然， <strong>UGUI</strong>，并没有NGUI那么多功能，稍微有点欠缺。但是有 Rect transform 布局已经很爽了，我将来写的编辑器，百分百会剽窃这个概念。 我太坏了，先跟Unity道个歉。</p>
+
+<p><img src="/img/u03.png" alt="" />
+
+↑这张图，是我对未来全新UI编辑器的展望，策划只要使用特殊账号进入游戏，就能够编辑界面，包括移动按钮位置，修改面板背景，添加 lua 脚本或者其它可视化编程脚本等等（类似于虚幻4的蓝图系统）。</p>
+
+<p>另外，最好是 XLayout 能够导出ui给多个引擎和项目组使用，那是最理想的状态。
+当然重口难调也是难免的。。。那就把UI编辑器拆分成轻量级的类库，让每个项目独立、快速的定制自己的UI编辑器，这或许也不错。</p>
+
+<p>呵呵，也只是想想。</p>
+
+</div>
+
+  <div class="ds-thread" data-thread-key="/ui_thinking/" data-title="关于UI编辑器的一些实践和思考" data-url="http://moketao.gitcafe.io/ui_thinking/"></div>
+
+
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"topdevil"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+
+</div>
+
+  </body>
+</html>

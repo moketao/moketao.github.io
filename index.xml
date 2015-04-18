@@ -6,8 +6,46 @@
     <description>Recent content on 破耳狼</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 16 Apr 2015 18:14:20 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 18 Apr 2015 16:46:25 +0800</lastBuildDate>
     <atom:link href="http://moketao.gitcafe.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>关于UI编辑器的一些实践和思考</title>
+      <link>http://moketao.gitcafe.io/ui_thinking/</link>
+      <pubDate>Sat, 18 Apr 2015 16:46:25 +0800</pubDate>
+      
+      <guid>http://moketao.gitcafe.io/ui_thinking/</guid>
+      <description>&lt;p&gt;经历了3个项目，都是前端程序员写死的UI，没有编辑器的概念，全是程序员写死的UI布局，企业都没有想到这方面的传承，也很少有主程序会去关注UI编辑器，或者是我遇到的主程还不够多？&lt;/p&gt;
+
+&lt;p&gt;后来忍不住写了一个叫做 XLayout 的 UI编辑器，基于 Starling 和 FeathersUI 的百分比布局模式，导出成 xml 或者 json，通过配置加载和读取，在游戏中“反射”回来。&lt;/p&gt;
+
+&lt;p&gt;只有UI编辑器实现了，并且成熟了，前端才不需要那么多程序员，或者说前端程序员可以多用点时间在别的事情上，而不是整天跟那堆UI代码死磕。&lt;/p&gt;
+
+&lt;p&gt;当然了，Flex4.6 也早就实现了类似的功能，可惜现在连 FlashBuilder 4.7 都不再维护了。&lt;/p&gt;
+
+&lt;p&gt;下面是几张 XLayout 的截图：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://moketao.gitcafe.io/img/u00.png&#34; alt=&#34;&#34; /&gt;
+
+↑对于属性编辑面板，我自己还是比较满意的。只要某控件实现了指定的接口，就可以在属性面板上显示它想要呈现给编辑者的任意多个属性，并支持下拉选项，数值，字符串等类型。另外还支持了拖拽 Label区域来改变数值的功能，以及颜色拾取器、图片拾取的功能。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://moketao.gitcafe.io/img/u01.png&#34; alt=&#34;&#34; /&gt;
+
+↑而对于百分比布局面板，就不太满意了，主要是因为这几天，我试用了Unity迟来的、新的GUI系统（简称 &lt;strong&gt;UGUI&lt;/strong&gt;），才有这样的感觉的。下面是 &lt;strong&gt;UGUI&lt;/strong&gt; 的截图，我感觉下面这个布局面板(Rect transform)，是 &lt;strong&gt;UGUI&lt;/strong&gt; 最有价值的功能，没有之一，这个面板集合了绝对定位和相对定位的概念在里面，用了就回不去了↓：
+&lt;img src=&#34;http://moketao.gitcafe.io/img/u02.png&#34; alt=&#34;&#34; /&gt;
+
+↑当然， &lt;strong&gt;UGUI&lt;/strong&gt;，并没有NGUI那么多功能，稍微有点欠缺。但是有 Rect transform 布局已经很爽了，我将来写的编辑器，百分百会剽窃这个概念。 我太坏了，先跟Unity道个歉。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://moketao.gitcafe.io/img/u03.png&#34; alt=&#34;&#34; /&gt;
+
+↑这张图，是我对未来全新UI编辑器的展望，策划只要使用特殊账号进入游戏，就能够编辑界面，包括移动按钮位置，修改面板背景，添加 lua 脚本或者其它可视化编程脚本等等（类似于虚幻4的蓝图系统）。&lt;/p&gt;
+
+&lt;p&gt;另外，最好是 XLayout 能够导出ui给多个引擎和项目组使用，那是最理想的状态。
+当然重口难调也是难免的。。。那就把UI编辑器拆分成轻量级的类库，让每个项目独立、快速的定制自己的UI编辑器，这或许也不错。&lt;/p&gt;
+
+&lt;p&gt;呵呵，也只是想想。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>BuildingAssetBundles in 5.x 中文简译</title>
