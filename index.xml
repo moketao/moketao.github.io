@@ -606,6 +606,10 @@ MsiExec.exe /passive /X{1D8E6291-B0D5-35EC-8441-6616F567A0F7}
 &lt;li&gt;地图可行走区域更新的时候，需要重新计算。&lt;/li&gt;
 &lt;li&gt;以内存换速度，不过消耗的内存也不多，一个地图10KB左右。&lt;/li&gt;
 &lt;/ol&gt;
+
+&lt;p&gt;下面是演示视频：&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://pan.baidu.com/s/1mgAAer2&#34;&gt;http://pan.baidu.com/s/1mgAAer2&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
