@@ -544,6 +544,72 @@ MsiExec.exe /passive /X{1D8E6291-B0D5-35EC-8441-6616F567A0F7}
     </item>
     
     <item>
+      <title>蠕虫算法，一个游戏角色行走路径的解决方案</title>
+      <link>http://moketao.gitcafe.io/poly_finder/</link>
+      <pubDate>Thu, 20 Nov 2014 11:34:21 +0800</pubDate>
+      
+      <guid>http://moketao.gitcafe.io/poly_finder/</guid>
+      <description>&lt;p&gt;这个算法是为了优化A*算法而产生的。算是一个优化Astar。&lt;/p&gt;
+
+&lt;p&gt;缘由是,主程说怪物行走时太消耗性能了。于是让我优化一下（因为我是负责怪物AI的）。&lt;/p&gt;
+
+&lt;p&gt;如果是开放式地图，那么怪物AI就由后端来处理了。
+不过我们这个是手游，都是单人副本比较多。所以怪物自然要具备一些智商，最基本的智商就是，从地图的A点行进到玩家所在的B点。如果只是单独一只怪物，行进时所需要计算的AStar逻辑并不多，如果错开时间，每隔两秒修正一下路径，那么运算量微乎其微，但是，如果是几十只怪物。。。运算量就大了。&lt;/p&gt;
+
+&lt;p&gt;于是我就开始冥思苦想。&lt;/p&gt;
+
+&lt;p&gt;终于让我想到了这个算法：&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;蠕虫算法&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;若有雷同，纯属巧合，不胜荣幸。
+下面是我的伪代码：
+&lt;pre&gt;&lt;/p&gt;
+
+&lt;p&gt;将场景分割成16*16像素的格子。红色格子是不可行走区域，其它格子是可行走区域。&lt;/p&gt;
+
+&lt;p&gt;每隔3个格子，产生一个圆，并将其的半径慢慢扩展，直到圆碰触到红色格子。&lt;/p&gt;
+
+&lt;p&gt;挑选出最大的那个圆。&lt;/p&gt;
+
+&lt;p&gt;基于这个圆，生成一个向外慢慢扩展的凸多边形。&lt;/p&gt;
+
+&lt;p&gt;当凸多边形扩展到一定程度，就不能再扩展了，因为面积已经最大化。&lt;/p&gt;
+
+&lt;p&gt;将这个多边形的编号，赋值给多边形所包含的所有16*16像素的格子，这样格子就从属于多边形。&lt;/p&gt;
+
+&lt;p&gt;找到所有的多边形。&lt;/p&gt;
+
+&lt;p&gt;将多边形之间的连接点算出来。&lt;/p&gt;
+
+&lt;p&gt;所有的连接点、所有的多边形 ，构成了一个小型的AStar网络。&lt;/p&gt;
+
+&lt;p&gt;在这个Astar网络里，计算每一个多边形到达其它多边形的路径，并存储起来。&lt;/p&gt;
+
+&lt;p&gt;在实际游戏中，引擎读取多边形相关的路径字典，再读取格子所属多边形。&lt;/p&gt;
+
+&lt;p&gt;怪物行走时，只需要通过格子所属多边形进行查表，即可获得路径。&lt;/p&gt;
+
+&lt;p&gt;&lt;/pre&gt;&lt;/p&gt;
+
+&lt;p&gt;这个算法的优点是：&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;全部查表，不消耗 CPU，不运算AStar。&lt;/li&gt;
+&lt;li&gt;暂时没想到。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;缺点是：&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;每个地图的预运算时间比较长，在5分钟到10分钟左右。&lt;/li&gt;
+&lt;li&gt;地图可行走区域更新的时候，需要重新计算。&lt;/li&gt;
+&lt;li&gt;以内存换速度，不过消耗的内存也不多，一个地图10KB左右。&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Golang、cuda、Windows 开发环境搭建</title>
       <link>http://moketao.gitcafe.io/Golang_cuda_Windows/</link>
       <pubDate>Sun, 02 Nov 2014 10:51:57 +0800</pubDate>

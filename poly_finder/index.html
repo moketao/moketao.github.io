@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2">
+
+  <title> 蠕虫算法，一个游戏角色行走路径的解决方案 </title>
+
+  
+  <link rel="stylesheet" href="http://moketao.gitcafe.io//css/poole.css">
+  <link rel="stylesheet" href="http://moketao.gitcafe.io//css/syntax.css">
+  <link rel="stylesheet" href="http://moketao.gitcafe.io//css/hyde.css">
+  <link rel="stylesheet" href="http://fonts.useso.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="破耳狼" />
+  
+  
+			<link rel="stylesheet" href="http://moketao.gitcafe.io//css/prettify.css">
+			<script src="http://moketao.gitcafe.io//css/jquery.js"></script>
+			<script src="http://moketao.gitcafe.io//css/prettify.js"></script>
+			<script type="text/javascript">
+        function lineDistance( point1, point2 )
+        {
+          var xs = 0;
+          var ys = 0;
+         
+          xs = point2.x - point1.x;
+          xs = xs * xs;
+         
+          ys = point2.y - point1.y;
+          ys = ys * ys;
+         
+          return Math.sqrt( xs + ys );
+        }
+				$(function(){
+				$("pre").addClass("prettyprint linenums");
+					prettyPrint();
+          $("pre").on("mousedown",function(e){
+              var me = $(this);
+              me.data("posx",e.pageX);
+              me.data("posy",e.pageY);
+          });
+          $("pre").on("mouseup",function(e){
+              var me = $(this);
+              me.data("posx");
+              var p1 = {x:me.data("posx"),y:me.data("posy")};
+              var p2 = {x:e.pageX,y:e.pageY};
+              if(lineDistance(p2,p1)<10){
+                var has = me.data("hasclick");
+                if(has){
+                  me.width(me.width()/3.2);
+                  me.data("hasclick",false);
+                }else{
+                  me.width(me.width()*3.2);
+                  me.data("hasclick",true);
+                }
+              }
+          });
+				});
+
+			</script>
+</head>
+
+<body>
+
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>破耳狼</h1>
+      <p class="lead">
+      美术与程序双工<br/>GitHub Url : <a href="http://github.com/moketao">GitHub.com/moketao</a>
+      </p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li><a href="/">Home</a> </li>
+      
+    </ul>
+
+    <p>&copy; 2015. All rights reserved. </p>
+  </div>
+</div>
+
+
+    <div class="content container">
+<div class="post">
+  <h1>蠕虫算法，一个游戏角色行走路径的解决方案</h1>
+  <span class="post-date">2014-11-20</span>
+      <p>这个算法是为了优化A*算法而产生的。算是一个优化Astar。</p>
+
+<p>缘由是,主程说怪物行走时太消耗性能了。于是让我优化一下（因为我是负责怪物AI的）。</p>
+
+<p>如果是开放式地图，那么怪物AI就由后端来处理了。
+不过我们这个是手游，都是单人副本比较多。所以怪物自然要具备一些智商，最基本的智商就是，从地图的A点行进到玩家所在的B点。如果只是单独一只怪物，行进时所需要计算的AStar逻辑并不多，如果错开时间，每隔两秒修正一下路径，那么运算量微乎其微，但是，如果是几十只怪物。。。运算量就大了。</p>
+
+<p>于是我就开始冥思苦想。</p>
+
+<p>终于让我想到了这个算法：</p>
+
+<p><strong>蠕虫算法</strong></p>
+
+<p>若有雷同，纯属巧合，不胜荣幸。
+下面是我的伪代码：
+<pre></p>
+
+<p>将场景分割成16*16像素的格子。红色格子是不可行走区域，其它格子是可行走区域。</p>
+
+<p>每隔3个格子，产生一个圆，并将其的半径慢慢扩展，直到圆碰触到红色格子。</p>
+
+<p>挑选出最大的那个圆。</p>
+
+<p>基于这个圆，生成一个向外慢慢扩展的凸多边形。</p>
+
+<p>当凸多边形扩展到一定程度，就不能再扩展了，因为面积已经最大化。</p>
+
+<p>将这个多边形的编号，赋值给多边形所包含的所有16*16像素的格子，这样格子就从属于多边形。</p>
+
+<p>找到所有的多边形。</p>
+
+<p>将多边形之间的连接点算出来。</p>
+
+<p>所有的连接点、所有的多边形 ，构成了一个小型的AStar网络。</p>
+
+<p>在这个Astar网络里，计算每一个多边形到达其它多边形的路径，并存储起来。</p>
+
+<p>在实际游戏中，引擎读取多边形相关的路径字典，再读取格子所属多边形。</p>
+
+<p>怪物行走时，只需要通过格子所属多边形进行查表，即可获得路径。</p>
+
+<p></pre></p>
+
+<p>这个算法的优点是：</p>
+
+<ol>
+<li>全部查表，不消耗 CPU，不运算AStar。</li>
+<li>暂时没想到。</li>
+</ol>
+
+<p>缺点是：</p>
+
+<ol>
+<li>每个地图的预运算时间比较长，在5分钟到10分钟左右。</li>
+<li>地图可行走区域更新的时候，需要重新计算。</li>
+<li>以内存换速度，不过消耗的内存也不多，一个地图10KB左右。</li>
+</ol>
+
+</div>
+
+  <div class="ds-thread" data-thread-key="/poly_finder/" data-title="蠕虫算法，一个游戏角色行走路径的解决方案" data-url="http://moketao.gitcafe.io/poly_finder/"></div>
+
+
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"topdevil"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+
+</div>
+
+  </body>
+</html>
