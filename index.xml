@@ -164,8 +164,10 @@ public class CreateAssetBundles
 
 &lt;h1 id=&#34;ab加载:efc30dcb7244a334a10687b605945d4b&#34;&gt;AB加载&lt;/h1&gt;
 
-&lt;p&gt;写到一半，刚搜到另外一位达人写的心得，直接转了：
+&lt;p&gt;写到一半，刚搜到另外几位达人写的心得，直接转了：
 点&lt;a href=&#34;http://liweizhaolili.blog.163.com/blog/static/162307442015282017852/&#34;&gt;这里&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://blog.csdn.net/langresser_king/article/details/44208585&#34;&gt;这里&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -283,17 +285,15 @@ Application.temporaryCachePath :      /var/folders/57/6b4_9w8113x2fsmzx_yhrhvh00
 
 &lt;p&gt;这里补充一下演示视频：&lt;/p&gt;
 
+&lt;!--
 &lt;video src=&#34;http://121.40.174.8/ai2.mp4&#34; width=&#34;720&#34; height=&#34;486&#34; controls=&#34;controls&#34;&gt;
 您的浏览器不支持 HTML5 的视频功能
 &lt;/video&gt;
+--&gt;
 
-&lt;p&gt;&lt;a href=&#34;http://121.40.174.8/ai2.mp4&#34;&gt;ai2.mp4&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://pan.baidu.com/s/1mgpB5bE&#34;&gt;ai2.mp4&lt;/a&gt;&lt;/p&gt;
 
-&lt;video src=&#34;http://121.40.174.8/ai1.mp4&#34; preload=&#34;false&#34; width=&#34;720&#34; height=&#34;486&#34; controls=&#34;controls&#34;&gt;
-您的浏览器不支持 HTML5 的视频功能
-&lt;/video&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://121.40.174.8/ai1.mp4&#34;&gt;ai1.mp4&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://pan.baidu.com/s/1c0AQCKC&#34;&gt;ai1.mp4&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;视频里面所呈现的节点，会闪烁。
 闪烁代表当前逻辑执行到的地方。
