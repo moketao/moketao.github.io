@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Windows on 破耳狼</title>
-    <link>http://localhost:1313/tags/windows/</link>
+    <link>http://topdevil.com/tags/windows/</link>
     <description>Recent content in Windows on 破耳狼</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Sun, 02 Nov 2014 10:51:57 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/windows/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://topdevil.com/tags/windows/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Golang、cuda、Windows 开发环境搭建</title>
-      <link>http://localhost:1313/Golang_cuda_Windows/</link>
+      <link>http://topdevil.com/Golang_cuda_Windows/</link>
       <pubDate>Sun, 02 Nov 2014 10:51:57 +0800</pubDate>
       
-      <guid>http://localhost:1313/Golang_cuda_Windows/</guid>
+      <guid>http://topdevil.com/Golang_cuda_Windows/</guid>
       <description>
 
 &lt;h2 id=&#34;步骤:cb248cbf25583db7cd96fd4710d513a3&#34;&gt;步骤&lt;/h2&gt;
