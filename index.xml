@@ -2,20 +2,33 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>破耳狼</title>
-    <link>http://topdevil.com/</link>
+    <link>http://localhost:1313/</link>
     <description>Recent content on 破耳狼</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 19 Apr 2015 16:13:06 +0800</lastBuildDate>
-    <atom:link href="http://topdevil.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 24 Feb 2016 12:13:06 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>ProtoBuff 协议号解析与字典代码类导出</title>
+      <link>http://localhost:1313/protobuff_dic/</link>
+      <pubDate>Wed, 24 Feb 2016 12:13:06 +0800</pubDate>
+      
+      <guid>http://localhost:1313/protobuff_dic/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/protodic.png&#34; alt=&#34;&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;protodic代码放 &lt;a href=&#34;https://github.com/moketao/ProtoDic&#34;&gt;https://github.com/moketao/ProtoDic&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>TextureGod ，“窥视”显卡内部的贴图和滤镜</title>
-      <link>http://topdevil.com/texture_god/</link>
+      <link>http://localhost:1313/texture_god/</link>
       <pubDate>Sun, 19 Apr 2015 16:13:06 +0800</pubDate>
       
-      <guid>http://topdevil.com/texture_god/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;http://topdevil.com/img/tg.png&#34; alt=&#34;&#34; /&gt;
+      <guid>http://localhost:1313/texture_god/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/tg.png&#34; alt=&#34;&#34; /&gt;
 &lt;/p&gt;
 
 &lt;p&gt;有段时间，我对于 Adobe scout 非常不满，并且对项目频频闪退，也很恼火。&lt;/p&gt;
@@ -95,10 +108,10 @@ FragmentFilter
     
     <item>
       <title>BuildingAssetBundles in 5.x 中文简译</title>
-      <link>http://topdevil.com/building_asset_bundles_in_5_cn/</link>
+      <link>http://localhost:1313/building_asset_bundles_in_5_cn/</link>
       <pubDate>Thu, 16 Apr 2015 18:14:20 +0800</pubDate>
       
-      <guid>http://topdevil.com/building_asset_bundles_in_5_cn/</guid>
+      <guid>http://localhost:1313/building_asset_bundles_in_5_cn/</guid>
       <description>
 
 &lt;p&gt;每篇博文的诞生，都是因为世界不够完美。&lt;/p&gt;
@@ -173,10 +186,10 @@ public class CreateAssetBundles
     
     <item>
       <title>Unity3D常用路径解读（表格版本）</title>
-      <link>http://topdevil.com/unity_path_ios_android/</link>
+      <link>http://localhost:1313/unity_path_ios_android/</link>
       <pubDate>Tue, 14 Apr 2015 14:26:54 +0800</pubDate>
       
-      <guid>http://topdevil.com/unity_path_ios_android/</guid>
+      <guid>http://localhost:1313/unity_path_ios_android/</guid>
       <description>
 
 &lt;p&gt;关于Unity的资源路径和权限，网上的资料都很零散，于是我打算用表格来解释清楚。&lt;/p&gt;
@@ -260,11 +273,11 @@ Application.temporaryCachePath :      /var/folders/57/6b4_9w8113x2fsmzx_yhrhvh00
     
     <item>
       <title>最近做的妹子</title>
-      <link>http://topdevil.com/3dgirl/</link>
+      <link>http://localhost:1313/3dgirl/</link>
       <pubDate>Wed, 08 Apr 2015 11:53:21 +0800</pubDate>
       
-      <guid>http://topdevil.com/3dgirl/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;http://topdevil.com/img/idle08.jpg&#34; alt=&#34;&#34; /&gt;
+      <guid>http://localhost:1313/3dgirl/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/idle08.jpg&#34; alt=&#34;&#34; /&gt;
 &lt;/p&gt;
 
 &lt;p&gt;整体风格，我尽量做的偏东方女性的风格。&lt;/p&gt;
@@ -273,11 +286,11 @@ Application.temporaryCachePath :      /var/folders/57/6b4_9w8113x2fsmzx_yhrhvh00
     
     <item>
       <title>行为树（决策树）AI编辑器</title>
-      <link>http://topdevil.com/ai_behavior_editor/</link>
+      <link>http://localhost:1313/ai_behavior_editor/</link>
       <pubDate>Wed, 01 Apr 2015 17:58:08 +0800</pubDate>
       
-      <guid>http://topdevil.com/ai_behavior_editor/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;http://topdevil.com/img/ai.png&#34; alt=&#34;&#34; /&gt;
+      <guid>http://localhost:1313/ai_behavior_editor/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/ai.png&#34; alt=&#34;&#34; /&gt;
 &lt;/p&gt;
 
 &lt;p&gt;关于我实现的那个AI编辑器，以前有提到过，写在csdn的blog上。
@@ -305,10 +318,10 @@ Application.temporaryCachePath :      /var/folders/57/6b4_9w8113x2fsmzx_yhrhvh00
     
     <item>
       <title>关于UI编辑器的一些实践和思考</title>
-      <link>http://topdevil.com/ui_thinking/</link>
+      <link>http://localhost:1313/ui_thinking/</link>
       <pubDate>Wed, 25 Mar 2015 16:46:25 +0800</pubDate>
       
-      <guid>http://topdevil.com/ui_thinking/</guid>
+      <guid>http://localhost:1313/ui_thinking/</guid>
       <description>&lt;p&gt;经历了3个项目，都是前端程序员写死的UI，没有编辑器的概念，全是程序员写死的UI布局，企业都没有想到这方面的传承，也很少有主程序会去关注UI编辑器，或者是我遇到的主程还不够多？&lt;/p&gt;
 
 &lt;p&gt;后来忍不住写了一个叫做 XLayout 的 UI编辑器，基于 Starling 和 FeathersUI 的百分比布局模式，导出成 xml 或者 json，通过配置加载和读取，在游戏中“反射”回来。&lt;/p&gt;
@@ -319,18 +332,18 @@ Application.temporaryCachePath :      /var/folders/57/6b4_9w8113x2fsmzx_yhrhvh00
 
 &lt;p&gt;下面是几张 XLayout 的截图：&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://topdevil.com/img/u00.png&#34; alt=&#34;&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/u00.png&#34; alt=&#34;&#34; /&gt;
 
 ↑对于属性编辑面板，我自己还是比较满意的。只要某控件实现了指定的接口，就可以在属性面板上显示它想要呈现给编辑者的任意多个属性，并支持下拉选项，数值，字符串等类型。另外还支持了拖拽 Label区域来改变数值的功能，以及颜色拾取器、图片拾取的功能。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://topdevil.com/img/u01.png&#34; alt=&#34;&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/u01.png&#34; alt=&#34;&#34; /&gt;
 
 ↑而对于百分比布局面板，就不太满意了，主要是因为这几天，我试用了Unity迟来的、新的GUI系统（简称 &lt;strong&gt;UGUI&lt;/strong&gt;），才有这样的感觉的。下面是 &lt;strong&gt;UGUI&lt;/strong&gt; 的截图，我感觉下面这个布局面板(Rect transform)，是 &lt;strong&gt;UGUI&lt;/strong&gt; 最有价值的功能，没有之一，这个面板集合了绝对定位和相对定位的概念在里面，用了就回不去了↓：
-&lt;img src=&#34;http://topdevil.com/img/u02.png&#34; alt=&#34;&#34; /&gt;
+&lt;img src=&#34;http://localhost:1313/img/u02.png&#34; alt=&#34;&#34; /&gt;
 
 ↑当然， &lt;strong&gt;UGUI&lt;/strong&gt;，并没有NGUI那么多功能，稍微有点欠缺。但是有 Rect transform 布局已经很爽了，我将来写的编辑器，百分百会剽窃这个概念。 我太坏了，先跟Unity道个歉。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://topdevil.com/img/u03.png&#34; alt=&#34;&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/u03.png&#34; alt=&#34;&#34; /&gt;
 
 ↑这张图，是我对未来全新UI编辑器的展望，策划只要使用特殊账号进入游戏，就能够编辑界面，包括移动按钮位置，修改面板背景，添加 lua 脚本或者其它可视化编程脚本等等（类似于虚幻4的蓝图系统）。&lt;/p&gt;
 
@@ -343,25 +356,25 @@ Application.temporaryCachePath :      /var/folders/57/6b4_9w8113x2fsmzx_yhrhvh00
     
     <item>
       <title>游戏公告编辑器（html）</title>
-      <link>http://topdevil.com/htmleditor_for_game/</link>
+      <link>http://localhost:1313/htmleditor_for_game/</link>
       <pubDate>Sat, 21 Mar 2015 16:13:28 +0800</pubDate>
       
-      <guid>http://topdevil.com/htmleditor_for_game/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;http://topdevil.com/img/ge.png&#34; alt=&#34;&#34; /&gt;
+      <guid>http://localhost:1313/htmleditor_for_game/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/ge.png&#34; alt=&#34;&#34; /&gt;
 &lt;/p&gt;
 
 &lt;p&gt;源码：&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;http://topdevil.com/data/FlashHtmlEditor2.rar&#34;&gt;FlashHtmlEditor2.rar&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://localhost:1313/data/FlashHtmlEditor2.rar&#34;&gt;FlashHtmlEditor2.rar&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>UnityVS 安装与使用</title>
-      <link>http://topdevil.com/unityvs_install/</link>
+      <link>http://localhost:1313/unityvs_install/</link>
       <pubDate>Mon, 16 Mar 2015 17:24:02 +0800</pubDate>
       
-      <guid>http://topdevil.com/unityvs_install/</guid>
+      <guid>http://localhost:1313/unityvs_install/</guid>
       <description>&lt;ol&gt;
 &lt;li&gt;先安装 &lt;strong&gt;VS2013&lt;/strong&gt;。&lt;/li&gt;
 &lt;li&gt;然后再安装 &lt;strong&gt;UnityVS&lt;/strong&gt; ，UnityVS在2014年被微软收购，所以现在是免费的，感谢微软。VS2013对应UnityVS 2013，从&lt;a href=&#34;https://visualstudiogallery.msdn.microsoft.com/20b80b8c-659b-45ef-96c1-437828fe7cf2&#34;&gt;这里&lt;/a&gt;下载，下载页面可以选择其他版本的UnityVS，比如2015版本的。&lt;/li&gt;
@@ -374,14 +387,14 @@ Application.temporaryCachePath :      /var/folders/57/6b4_9w8113x2fsmzx_yhrhvh00
     
     <item>
       <title>使用 Unity Shader 实现 GPU Hair</title>
-      <link>http://topdevil.com/unity_shader_gpu_hair/</link>
+      <link>http://localhost:1313/unity_shader_gpu_hair/</link>
       <pubDate>Fri, 13 Feb 2015 09:39:39 +0800</pubDate>
       
-      <guid>http://topdevil.com/unity_shader_gpu_hair/</guid>
+      <guid>http://localhost:1313/unity_shader_gpu_hair/</guid>
       <description>&lt;p&gt;本来想用 &lt;strong&gt;Unity&lt;/strong&gt; &lt;strong&gt;布料系统&lt;/strong&gt; 实现头发或飘带等效果，但是使用过后，发现非常消耗性能。
 所以不得不研究别的办法。
 下面是我的实现方法，&lt;strong&gt;GPU Hair&lt;/strong&gt;：
-&lt;img src=&#34;http://topdevil.com/img/gpuhair.png&#34; alt=&#34;&#34; /&gt;
+&lt;img src=&#34;http://localhost:1313/img/gpuhair.png&#34; alt=&#34;&#34; /&gt;
 &lt;/p&gt;
 
 &lt;pre&gt;
@@ -474,7 +487,7 @@ public class DelayPoint : MonoBehaviour {
 &lt;/ol&gt;
 
 &lt;p&gt;项目源码下载（Unity5导出，4.x版本不知道能不能打开）：
-&lt;a href=&#34;http://topdevil.com/data/GPUHair.rar&#34;&gt;GPUHair.rar&lt;/a&gt;&lt;/p&gt;
+&lt;a href=&#34;http://localhost:1313/data/GPUHair.rar&#34;&gt;GPUHair.rar&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;如果要像虚幻引擎那样支持碰撞检测，应该也没问题，加入圆和半径的计算就可以了。
 当然，参与计算的圆越少越好，手游甚至可以不考虑碰撞。&lt;/p&gt;
@@ -483,10 +496,10 @@ public class DelayPoint : MonoBehaviour {
     
     <item>
       <title>dxsdk 安装过程中报错: S1023</title>
-      <link>http://topdevil.com/dxsdk_install_err/</link>
+      <link>http://localhost:1313/dxsdk_install_err/</link>
       <pubDate>Tue, 13 Jan 2015 17:47:19 +0800</pubDate>
       
-      <guid>http://topdevil.com/dxsdk_install_err/</guid>
+      <guid>http://localhost:1313/dxsdk_install_err/</guid>
       <description>
 
 &lt;p&gt;安装directx sdk 报错： errors were encountered during installation of redistributable package s1023&lt;/p&gt;
@@ -510,24 +523,24 @@ MsiExec.exe /passive /X{1D8E6291-B0D5-35EC-8441-6616F567A0F7}
     
     <item>
       <title>用sublime写shader也可以有 autocomplete（笨办法）</title>
-      <link>http://topdevil.com/sublime_autocomplete/</link>
+      <link>http://localhost:1313/sublime_autocomplete/</link>
       <pubDate>Sat, 10 Jan 2015 20:05:28 +0800</pubDate>
       
-      <guid>http://topdevil.com/sublime_autocomplete/</guid>
+      <guid>http://localhost:1313/sublime_autocomplete/</guid>
       <description>&lt;p&gt;编写 Unity 的Shader，最痛苦的就是没有代码 &lt;strong&gt;自动完成&lt;/strong&gt; 的代码提示了，今天装了 &lt;strong&gt;Sublime Text&lt;/strong&gt;，只有高亮，于是想出一种超龊的办法，在前面粘贴一段类似的注释代码，如图：&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://topdevil.com/img/subl_auto.png&#34; alt=&#34;sublime_unity_shader_auto_complete&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/subl_auto.png&#34; alt=&#34;sublime_unity_shader_auto_complete&#34; /&gt;
 &lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>技能编辑器</title>
-      <link>http://topdevil.com/skilleditor/</link>
+      <link>http://localhost:1313/skilleditor/</link>
       <pubDate>Fri, 19 Dec 2014 16:12:47 +0800</pubDate>
       
-      <guid>http://topdevil.com/skilleditor/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;http://topdevil.com/img/skilleditor.png&#34; alt=&#34;&#34; /&gt;
+      <guid>http://localhost:1313/skilleditor/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/skilleditor.png&#34; alt=&#34;&#34; /&gt;
 &lt;/p&gt;
 
 &lt;p&gt;因为赶时间，所以并没有认真思考如何去写。&lt;/p&gt;
@@ -545,10 +558,10 @@ MsiExec.exe /passive /X{1D8E6291-B0D5-35EC-8441-6616F567A0F7}
     
     <item>
       <title>蠕虫算法，一个游戏角色行走路径的解决方案</title>
-      <link>http://topdevil.com/poly_finder/</link>
+      <link>http://localhost:1313/poly_finder/</link>
       <pubDate>Thu, 20 Nov 2014 11:34:21 +0800</pubDate>
       
-      <guid>http://topdevil.com/poly_finder/</guid>
+      <guid>http://localhost:1313/poly_finder/</guid>
       <description>&lt;p&gt;这个算法是为了优化A*算法而产生的。算是一个优化Astar。&lt;/p&gt;
 
 &lt;p&gt;缘由是,主程说怪物行走时太消耗性能了。于是让我优化一下（因为我是负责怪物AI的）。&lt;/p&gt;
@@ -615,10 +628,10 @@ MsiExec.exe /passive /X{1D8E6291-B0D5-35EC-8441-6616F567A0F7}
     
     <item>
       <title>Golang、cuda、Windows 开发环境搭建</title>
-      <link>http://topdevil.com/Golang_cuda_Windows/</link>
+      <link>http://localhost:1313/Golang_cuda_Windows/</link>
       <pubDate>Sun, 02 Nov 2014 10:51:57 +0800</pubDate>
       
-      <guid>http://topdevil.com/Golang_cuda_Windows/</guid>
+      <guid>http://localhost:1313/Golang_cuda_Windows/</guid>
       <description>
 
 &lt;h2 id=&#34;步骤:cb248cbf25583db7cd96fd4710d513a3&#34;&gt;步骤&lt;/h2&gt;
@@ -652,31 +665,6 @@ import &#34;C&#34;
 &lt;p&gt;如果你的cuda安装在&lt;strong&gt;C盘&lt;/strong&gt;，则上面相应位置则是以C:/开头，而不是F:/开头。&lt;/p&gt;
 
 &lt;p&gt;斜杠注释不要去掉，golang能读，import &amp;ldquo;C&amp;rdquo;那一行必须与上一行&lt;strong&gt;紧贴&lt;/strong&gt;，中间不能有空行。&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>关于我</title>
-      <link>http://topdevil.com/about/</link>
-      <pubDate>Sun, 07 Sep 2014 13:49:00 +0800</pubDate>
-      
-      <guid>http://topdevil.com/about/</guid>
-      <description>
-
-&lt;h2 id=&#34;联系方式:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;联系方式&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;name 莫克陶&lt;/li&gt;
-&lt;li&gt;email moketao@qq.com&lt;/li&gt;
-&lt;li&gt;qq 30558209&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;经历:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;经历&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;2011 web.4399.com&lt;/li&gt;
-&lt;li&gt;2013 www.zqgame.com.cn&lt;/li&gt;
-&lt;/ul&gt;
 </description>
     </item>
     

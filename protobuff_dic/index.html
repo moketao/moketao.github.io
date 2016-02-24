@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2">
 
-  <title> Golang、cuda、Windows 开发环境搭建 </title>
+  <title> ProtoBuff 协议号解析与字典代码类导出 </title>
 
   
   <link rel="stylesheet" href="http://localhost:1313//css/poole.css">
@@ -92,45 +92,16 @@
 
     <div class="content container">
 <div class="post">
-  <h1>Golang、cuda、Windows 开发环境搭建</h1>
-  <span class="post-date">2014-11-02</span>
-      
+  <h1>ProtoBuff 协议号解析与字典代码类导出</h1>
+  <span class="post-date">2016-02-24</span>
+      <p><img src="/img/protodic.png" alt="" />
+</p>
 
-<h2 id="步骤:cb248cbf25583db7cd96fd4710d513a3">步骤</h2>
-
-<ol>
-<li>因为我的系统是 Win7 64位的，所以先装<strong>Mingw-w64</strong>，下载地址：<a href="http://sourceforge.net/projects/mingw-w64/">http://sourceforge.net/projects/mingw-w64/</a>
-安装的时候选 x86_64，其它默认</li>
-<li>然后安装<strong>CUDA</strong></li>
-<li>然后安装<strong>Golang</strong></li>
-<li>然后安装<strong>EveryThing</strong>，这是个文件搜索软件，等下会用到</li>
-<li>打开命令窗口cmd，运行：<code>go get github.com/barnex/cuda5</code>，报错：<code>cannot find -lcuda</code>，网上搜出全都是Linux解决方案，让我抓狂，所以才有此文。</li>
-<li>用EveryThing搜<strong>cgoflags.go</strong>，发现在GOPAT的某些目录下包含总共4个cgoflags.go文件，打开后，发现最后面有Windows相关配置</li>
-<li>4个cgoflags.go文件依次打开，将内部有关Windows的部分，全部改成：</li>
-</ol>
-
-<blockquote>
-<pre>
-////WINDOWS:
-//#cgo windows LDFLAGS:-LF:/cuda/bin/lib/x64
-//#cgo windows CFLAGS: -IF:/cuda/bin/include
-import "C"
-</pre>
-</blockquote>
-
-<h2 id="注意事项:cb248cbf25583db7cd96fd4710d513a3">注意事项</h2>
-
-<p>上面代码中的F:/cuda/bin/lib/x64，代表cuda安装目录下的的lib目录，</p>
-
-<p>上面代码中的F:/cuda/bin/include，代表cuda安装目录下的的include目录。</p>
-
-<p>如果你的cuda安装在<strong>C盘</strong>，则上面相应位置则是以C:/开头，而不是F:/开头。</p>
-
-<p>斜杠注释不要去掉，golang能读，import &ldquo;C&rdquo;那一行必须与上一行<strong>紧贴</strong>，中间不能有空行。</p>
+<p>protodic代码放 <a href="https://github.com/moketao/ProtoDic">https://github.com/moketao/ProtoDic</a></p>
 
 </div>
 
-  <div class="ds-thread" data-thread-key="/Golang_cuda_Windows/" data-title="Golang、cuda、Windows 开发环境搭建" data-url="http://localhost:1313/Golang_cuda_Windows/"></div>
+  <div class="ds-thread" data-thread-key="/protobuff_dic/" data-title="ProtoBuff 协议号解析与字典代码类导出" data-url="http://localhost:1313/protobuff_dic/"></div>
 
 
 <script type="text/javascript">
