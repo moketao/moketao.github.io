@@ -6,8 +6,42 @@
     <description>Recent content on 破耳狼</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 24 Feb 2016 12:13:06 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 21 May 2017 18:53:21 +0800</lastBuildDate>
     <atom:link href="http://topdevil.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>TreeMap编辑器和3D技能编辑器</title>
+      <link>http://topdevil.com/editor/</link>
+      <pubDate>Sun, 21 May 2017 18:53:21 +0800</pubDate>
+      
+      <guid>http://topdevil.com/editor/</guid>
+      <description>&lt;p&gt;今天整理资料，从硬盘里翻出两个有意思的编辑器，截图留念一下。&lt;/p&gt;
+
+&lt;p&gt;下面这个是给大学同学韦华做编剧辅助的软件，取名叫TreeMap。（原本是有设想过，定义人格后能够自动生成剧本的，但是这个提议太庞大了，只能先做成树形结构的笔记本）&lt;/p&gt;
+
+&lt;p&gt;现在想来，如果要跟上时代的话，要加入语音搜索和全文搜索功能才算完善。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://topdevil.com/img/editor01.png&#34; alt=&#34;&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://topdevil.com/img/editor02.png&#34; alt=&#34;&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://topdevil.com/data/TreeMap_bak20170521.rar&#34; alt=&#34;&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;下面这个是在千尘科技时做的3D技能编辑器，项目名称是剑破虚空，原本是修仙类的，后来转成Dota类的日韩风游戏:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://topdevil.com/img/editor03.png&#34; alt=&#34;&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;性能上，这个3D游戏一开始只支持20人同屏，性能优化后，支持100人同屏。&lt;/p&gt;
+
+&lt;p&gt;后期有几个穿越障碍的bug也解决了，算是比较完整的框架，只可惜 Flash 的大环境不太好。&lt;/p&gt;
+
+&lt;p&gt;后面只能在 WebGL 、UE4、Unity 上多下点功夫了。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>ProtoBuff 协议号解析与字典代码类导出</title>
@@ -623,48 +657,6 @@ MsiExec.exe /passive /X{1D8E6291-B0D5-35EC-8441-6616F567A0F7}
 &lt;p&gt;下面是演示视频：&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://pan.baidu.com/s/1mgAAer2&#34;&gt;http://pan.baidu.com/s/1mgAAer2&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Golang、cuda、Windows 开发环境搭建</title>
-      <link>http://topdevil.com/Golang_cuda_Windows/</link>
-      <pubDate>Sun, 02 Nov 2014 10:51:57 +0800</pubDate>
-      
-      <guid>http://topdevil.com/Golang_cuda_Windows/</guid>
-      <description>
-
-&lt;h2 id=&#34;步骤:cb248cbf25583db7cd96fd4710d513a3&#34;&gt;步骤&lt;/h2&gt;
-
-&lt;ol&gt;
-&lt;li&gt;因为我的系统是 Win7 64位的，所以先装&lt;strong&gt;Mingw-w64&lt;/strong&gt;，下载地址：&lt;a href=&#34;http://sourceforge.net/projects/mingw-w64/&#34;&gt;http://sourceforge.net/projects/mingw-w64/&lt;/a&gt;
-安装的时候选 x86_64，其它默认&lt;/li&gt;
-&lt;li&gt;然后安装&lt;strong&gt;CUDA&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;然后安装&lt;strong&gt;Golang&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;然后安装&lt;strong&gt;EveryThing&lt;/strong&gt;，这是个文件搜索软件，等下会用到&lt;/li&gt;
-&lt;li&gt;打开命令窗口cmd，运行：&lt;code&gt;go get github.com/barnex/cuda5&lt;/code&gt;，报错：&lt;code&gt;cannot find -lcuda&lt;/code&gt;，网上搜出全都是Linux解决方案，让我抓狂，所以才有此文。&lt;/li&gt;
-&lt;li&gt;用EveryThing搜&lt;strong&gt;cgoflags.go&lt;/strong&gt;，发现在GOPAT的某些目录下包含总共4个cgoflags.go文件，打开后，发现最后面有Windows相关配置&lt;/li&gt;
-&lt;li&gt;4个cgoflags.go文件依次打开，将内部有关Windows的部分，全部改成：&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;blockquote&gt;
-&lt;pre&gt;
-////WINDOWS:
-//#cgo windows LDFLAGS:-LF:/cuda/bin/lib/x64
-//#cgo windows CFLAGS: -IF:/cuda/bin/include
-import &#34;C&#34;
-&lt;/pre&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&#34;注意事项:cb248cbf25583db7cd96fd4710d513a3&#34;&gt;注意事项&lt;/h2&gt;
-
-&lt;p&gt;上面代码中的F:/cuda/bin/lib/x64，代表cuda安装目录下的的lib目录，&lt;/p&gt;
-
-&lt;p&gt;上面代码中的F:/cuda/bin/include，代表cuda安装目录下的的include目录。&lt;/p&gt;
-
-&lt;p&gt;如果你的cuda安装在&lt;strong&gt;C盘&lt;/strong&gt;，则上面相应位置则是以C:/开头，而不是F:/开头。&lt;/p&gt;
-
-&lt;p&gt;斜杠注释不要去掉，golang能读，import &amp;ldquo;C&amp;rdquo;那一行必须与上一行&lt;strong&gt;紧贴&lt;/strong&gt;，中间不能有空行。&lt;/p&gt;
 </description>
     </item>
     
