@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2">
+
+  <title> TreeMap编辑器和3D技能编辑器 </title>
+
+  
+  <link rel="stylesheet" href="http://topdevil.com//css/poole.css">
+  <link rel="stylesheet" href="http://topdevil.com//css/syntax.css">
+  <link rel="stylesheet" href="http://topdevil.com//css/hyde.css">
+  <link rel="stylesheet" href="http://fonts.useso.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="破耳狼" />
+  
+  
+			<link rel="stylesheet" href="http://topdevil.com//css/prettify.css">
+			<script src="http://topdevil.com//css/jquery.js"></script>
+			<script src="http://topdevil.com//css/prettify.js"></script>
+			<script type="text/javascript">
+        function lineDistance( point1, point2 )
+        {
+          var xs = 0;
+          var ys = 0;
+         
+          xs = point2.x - point1.x;
+          xs = xs * xs;
+         
+          ys = point2.y - point1.y;
+          ys = ys * ys;
+         
+          return Math.sqrt( xs + ys );
+        }
+				$(function(){
+				$("pre").addClass("prettyprint linenums");
+					prettyPrint();
+          $("pre").on("mousedown",function(e){
+              var me = $(this);
+              me.data("posx",e.pageX);
+              me.data("posy",e.pageY);
+          });
+          $("pre").on("mouseup",function(e){
+              var me = $(this);
+              me.data("posx");
+              var p1 = {x:me.data("posx"),y:me.data("posy")};
+              var p2 = {x:e.pageX,y:e.pageY};
+              if(lineDistance(p2,p1)<10){
+                var has = me.data("hasclick");
+                if(has){
+                  me.width(me.width()/3.2);
+                  me.data("hasclick",false);
+                }else{
+                  me.width(me.width()*3.2);
+                  me.data("hasclick",true);
+                }
+              }
+          });
+				});
+
+			</script>
+</head>
+
+<body>
+
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>破耳狼</h1>
+      <p class="lead">
+      美术与程序双工<br/>GitHub Url : <a href="http://github.com/moketao">GitHub.com/moketao</a>
+      </p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li><a href="/">Home</a> </li>
+      
+    </ul>
+
+    <p>&copy; 2017. All rights reserved. </p>
+  </div>
+</div>
+
+
+    <div class="content container">
+<div class="post">
+  <h1>TreeMap编辑器和3D技能编辑器</h1>
+  <span class="post-date">2017-05-21</span>
+      <p>今天整理资料，从硬盘里翻出两个有意思的编辑器，截图留念一下。</p>
+
+<p>下面这个是给大学同学韦华做编剧辅助的软件，取名叫TreeMap。（原本是有设想过，定义人格后能够自动生成剧本的，但是这个提议太庞大了，只能先做成树形结构的笔记本）</p>
+
+<p>现在想来，如果要跟上时代的话，要加入语音搜索和全文搜索功能才算完善。</p>
+
+<p><img src="/img/editor01.png" alt="" />
+</p>
+
+<p><img src="/img/editor02.png" alt="" />
+</p>
+
+<p><img src="/data/TreeMap_bak20170521.rar" alt="" />
+</p>
+
+<p>下面这个是在千尘科技时做的3D技能编辑器，项目名称是剑破虚空，原本是修仙类的，后来转成Dota类的日韩风游戏:</p>
+
+<p><img src="/img/editor03.png" alt="" />
+</p>
+
+<p>性能上，这个3D游戏一开始只支持20人同屏，性能优化后，支持100人同屏。</p>
+
+<p>后期有几个穿越障碍的bug也解决了，算是比较完整的框架，只可惜 Flash 的大环境不太好。</p>
+
+<p>后面只能在 WebGL 、UE4、Unity 上多下点功夫了。</p>
+
+</div>
+
+  <div class="ds-thread" data-thread-key="/editor/" data-title="TreeMap编辑器和3D技能编辑器" data-url="http://topdevil.com/editor/"></div>
+
+
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"topdevil"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+
+</div>
+
+  </body>
+</html>
