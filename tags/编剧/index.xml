@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>3d on 破耳狼</title>
-    <link>http://topdevil.com/tags/3d/</link>
-    <description>Recent content in 3d on 破耳狼</description>
+    <title>编剧 on 破耳狼</title>
+    <link>http://topdevil.com/tags/%E7%BC%96%E5%89%A7/</link>
+    <description>Recent content in 编剧 on 破耳狼</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Sun, 21 May 2017 18:53:21 +0800</lastBuildDate>
-    <atom:link href="http://topdevil.com/tags/3d/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://topdevil.com/tags/%E7%BC%96%E5%89%A7/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>TreeMap编辑器和3D技能编辑器</title>
@@ -39,19 +39,6 @@
 &lt;p&gt;后期有几个穿越障碍的bug也解决了，算是比较完整的框架，只可惜 Flash 的大环境不太好。&lt;/p&gt;
 
 &lt;p&gt;后面只能在 WebGL 、UE4、Unity 上多下点功夫了。&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>最近做的妹子</title>
-      <link>http://topdevil.com/3dgirl/</link>
-      <pubDate>Wed, 08 Apr 2015 11:53:21 +0800</pubDate>
-      
-      <guid>http://topdevil.com/3dgirl/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;http://topdevil.com/img/idle08.jpg&#34; alt=&#34;&#34; /&gt;
-&lt;/p&gt;
-
-&lt;p&gt;整体风格，我尽量做的偏东方女性的风格。&lt;/p&gt;
 </description>
     </item>
     
