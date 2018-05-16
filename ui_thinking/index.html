@@ -10,21 +10,19 @@
   <title> 关于UI编辑器的一些实践和思考 </title>
 
   
-  <link rel="stylesheet" href="http://topdevil.com//css/poole.css">
-  <link rel="stylesheet" href="http://topdevil.com//css/syntax.css">
-  <link rel="stylesheet" href="http://topdevil.com//css/hyde.css">
+  <link rel="stylesheet" href="http://moketao.github.io//css/poole.css">
+  <link rel="stylesheet" href="http://moketao.github.io//css/syntax.css">
+  <link rel="stylesheet" href="http://moketao.github.io//css/hyde.css">
 
   
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
   <link rel="shortcut icon" href="/favicon.ico">
 
   
-  <link href="" rel="alternate" type="application/rss+xml" title="破耳狼" />
   
-  
-			<link rel="stylesheet" href="http://topdevil.com//css/prettify.css">
-			<script src="http://topdevil.com//css/jquery.js"></script>
-			<script src="http://topdevil.com//css/prettify.js"></script>
+			<link rel="stylesheet" href="http://moketao.github.io//css/prettify.css">
+			<script src="http://moketao.github.io//css/jquery.js"></script>
+			<script src="http://moketao.github.io//css/prettify.js"></script>
 			<script type="text/javascript">
         function lineDistance( point1, point2 )
         {
@@ -84,7 +82,7 @@
       
     </ul>
 
-    <p>&copy; 2017. All rights reserved. </p>
+    <p>&copy; 2018. All rights reserved. </p>
   </div>
 </div>
 
@@ -104,25 +102,22 @@
 <p>下面是几张 XLayout 的截图：</p>
 
 <p><img src="/img/u00.png" alt="" />
-
 ↑对于属性编辑面板，我自己还是比较满意的。只要某控件实现了指定的接口，就可以在属性面板上显示它想要呈现给编辑者的任意多个属性，并支持下拉选项，数值，字符串等类型。另外还支持了拖拽 Label区域来改变数值的功能，以及颜色拾取器、图片拾取的功能。</p>
 
 <p><img src="/img/u01.png" alt="" />
-
 ↑而对于百分比布局面板，就不太满意了，主要是因为这几天，我试用了Unity迟来的、新的GUI系统（简称 <strong>UGUI</strong>），才有这样的感觉的。下面是 <strong>UGUI</strong> 的截图，我感觉下面这个布局面板(Rect transform)，是 <strong>UGUI</strong> 最有价值的功能，没有之一，这个面板集合了绝对定位和相对定位的概念在里面，用了就回不去了↓：
 <img src="/img/u02.png" alt="" />
-
 ↑当然， <strong>UGUI</strong>，并没有NGUI那么多功能，稍微有点欠缺。但是有 Rect transform 布局已经很爽了，我将来写的编辑器，百分百会剽窃这个概念。 我太坏了，先跟Unity道个歉。</p>
 
 <p><img src="/img/u03.png" alt="" />
-
 ↑这张图，是我对未来全新UI编辑器的展望，策划只要使用特殊账号进入游戏，就能够编辑界面，包括移动按钮位置，修改面板背景，添加 lua 脚本或者其它可视化编程脚本等等（类似于虚幻4的蓝图系统）。</p>
+
+<p></p>
 
 <p>另外，最好是 XLayout 能够导出ui给多个引擎和项目组使用，那是最理想的状态。
 当然重口难调也是难免的。。。那就把UI编辑器拆分成轻量级的类库，让每个项目独立、快速的定制自己的UI编辑器，这或许也不错。</p>
 
 <p>呵呵，也只是想想，不一定能实现。。。</p>
-
 </div>
 </div>
 

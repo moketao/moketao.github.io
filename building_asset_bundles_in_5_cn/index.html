@@ -10,21 +10,19 @@
   <title> BuildingAssetBundles in 5.x 中文简译 </title>
 
   
-  <link rel="stylesheet" href="http://topdevil.com//css/poole.css">
-  <link rel="stylesheet" href="http://topdevil.com//css/syntax.css">
-  <link rel="stylesheet" href="http://topdevil.com//css/hyde.css">
+  <link rel="stylesheet" href="http://moketao.github.io//css/poole.css">
+  <link rel="stylesheet" href="http://moketao.github.io//css/syntax.css">
+  <link rel="stylesheet" href="http://moketao.github.io//css/hyde.css">
 
   
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
   <link rel="shortcut icon" href="/favicon.ico">
 
   
-  <link href="" rel="alternate" type="application/rss+xml" title="破耳狼" />
   
-  
-			<link rel="stylesheet" href="http://topdevil.com//css/prettify.css">
-			<script src="http://topdevil.com//css/jquery.js"></script>
-			<script src="http://topdevil.com//css/prettify.js"></script>
+			<link rel="stylesheet" href="http://moketao.github.io//css/prettify.css">
+			<script src="http://moketao.github.io//css/jquery.js"></script>
+			<script src="http://moketao.github.io//css/prettify.js"></script>
 			<script type="text/javascript">
         function lineDistance( point1, point2 )
         {
@@ -84,7 +82,7 @@
       
     </ul>
 
-    <p>&copy; 2017. All rights reserved. </p>
+    <p>&copy; 2018. All rights reserved. </p>
   </div>
 </div>
 
@@ -93,9 +91,7 @@
 <div class="post">
   <h1>BuildingAssetBundles in 5.x 中文简译</h1>
   <span class="post-date">2015-04-16</span>
-      
-
-<p>每篇博文的诞生，都是因为世界不够完美。</p>
+      <p>每篇博文的诞生，都是因为世界不够完美。</p>
 
 <p>这不，Unity5刚出来，打包流程和之前差别较大，国内搜到的都是关于4.6的文章。</p>
 
@@ -106,9 +102,11 @@
 <p>Unity 4.x 的环境里，都是用脚本去创建 AssetBundles （以下简称<strong>AB</strong>）。
 Unity5.x为了简化流程，添加了可视化工具。当你选择某个资源的时候，比如一张图片，你会发现在屏幕右下角，多了两个关于AssetBundles的下拉菜单。在第一个菜单里，你可以新建一个<strong>AB</strong>，或者将当前资源归到某个你已经建好的<strong>AB</strong>里。第二个下拉菜单是指定变体的，默认是没有变体的，但你可以新建。比如sd变体（标清版）和hd变体（高清版），具体说：</p>
 
+<p></p>
+
 <p>你可以仅仅指定一个名为foo的<strong>AB</strong>。这样就没有变体一说，整个世界很干净。可是，如果你新建了一个foo的<strong>AB</strong>，又给这个<strong>AB</strong>新增了两个变体，sd和hd，那么，将来导出资源包的时候，就不是foo这个包，而是foo.sd和foo.hd两个包。世界变得很脏，但随之而来的好处是，你可以在某些情况下，切换标清和高清画质。</p>
 
-<h1 id="ab导出:efc30dcb7244a334a10687b605945d4b">AB导出</h1>
+<h1 id="ab导出">AB导出</h1>
 
 <p>说的有点抽象，接下来实验一下就清楚了，先复制如下代码：</p>
 
@@ -156,13 +154,12 @@ public class CreateAssetBundles
 //并且StreamingAssets目录下必须存在 AssetBundles目录，没有就手动新建。
 </pre></p>
 
-<h1 id="ab加载:efc30dcb7244a334a10687b605945d4b">AB加载</h1>
+<h1 id="ab加载">AB加载</h1>
 
 <p>写到一半，刚搜到另外几位达人写的心得，直接转了：
 点<a href="http://liweizhaolili.blog.163.com/blog/static/162307442015282017852/">这里</a></p>
 
 <p><a href="http://blog.csdn.net/langresser_king/article/details/44208585">这里</a></p>
-
 </div>
 </div>
 

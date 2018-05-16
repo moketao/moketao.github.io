@@ -2,44 +2,34 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>编剧 on 破耳狼</title>
-    <link>http://topdevil.com/tags/%E7%BC%96%E5%89%A7/</link>
+    <link>http://moketao.github.io/tags/%E7%BC%96%E5%89%A7/</link>
     <description>Recent content in 编剧 on 破耳狼</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Sun, 21 May 2017 18:53:21 +0800</lastBuildDate>
-    <atom:link href="http://topdevil.com/tags/%E7%BC%96%E5%89%A7/index.xml" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="http://moketao.github.io/tags/%E7%BC%96%E5%89%A7/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>TreeMap编辑器和3D技能编辑器</title>
-      <link>http://topdevil.com/editor/</link>
+      <link>http://moketao.github.io/editor/</link>
       <pubDate>Sun, 21 May 2017 18:53:21 +0800</pubDate>
       
-      <guid>http://topdevil.com/editor/</guid>
+      <guid>http://moketao.github.io/editor/</guid>
       <description>&lt;p&gt;今天整理资料，从硬盘里翻出两个有意思的编辑器，截图留念一下。&lt;/p&gt;
 
 &lt;p&gt;下面这个是给大学同学韦华做编剧辅助的软件，取名叫TreeMap。（原本是有设想过，定义人格后能够自动生成剧本的，但是这个提议太庞大了，只能先做成树形结构的笔记本）&lt;/p&gt;
 
 &lt;p&gt;现在想来，如果要跟上时代的话，要加入语音搜索和全文搜索功能才算完善。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://topdevil.com/img/editor01.png&#34; alt=&#34;&#34; /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://moketao.github.io/img/editor01.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://topdevil.com/img/editor02.png&#34; alt=&#34;&#34; /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://moketao.github.io/img/editor02.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;http://topdevil.com/data/TreeMap_bak20170521.rar&#34;&gt;rar&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://moketao.github.io/data/TreeMap_bak20170521.rar&#34;&gt;rar&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;下面这个是在千尘科技时做的3D技能编辑器，项目名称是剑破虚空，原本是修仙类的，后来转成Dota类的日韩风游戏:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://topdevil.com/img/editor03.png&#34; alt=&#34;&#34; /&gt;
-&lt;/p&gt;
-
-&lt;p&gt;性能上，这个3D游戏一开始只支持20人同屏，性能优化后，支持100人同屏。&lt;/p&gt;
-
-&lt;p&gt;后期有几个穿越障碍的bug也解决了，算是比较完整的框架，只可惜 Flash 的大环境不太好。&lt;/p&gt;
-
-&lt;p&gt;后面只能在 WebGL 、UE4、Unity 上多下点功夫了。&lt;/p&gt;
-</description>
+&lt;p&gt;下面这个是在千尘科技时做的3D技能编辑器，项目名称是剑破虚空，原本是修仙类的，后来转成Dota类的日韩风游戏:&lt;/p&gt;</description>
     </item>
     
   </channel>

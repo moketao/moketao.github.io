@@ -10,21 +10,19 @@
   <title> Unity3D常用路径解读（表格版本） </title>
 
   
-  <link rel="stylesheet" href="http://topdevil.com//css/poole.css">
-  <link rel="stylesheet" href="http://topdevil.com//css/syntax.css">
-  <link rel="stylesheet" href="http://topdevil.com//css/hyde.css">
+  <link rel="stylesheet" href="http://moketao.github.io//css/poole.css">
+  <link rel="stylesheet" href="http://moketao.github.io//css/syntax.css">
+  <link rel="stylesheet" href="http://moketao.github.io//css/hyde.css">
 
   
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
   <link rel="shortcut icon" href="/favicon.ico">
 
   
-  <link href="" rel="alternate" type="application/rss+xml" title="破耳狼" />
   
-  
-			<link rel="stylesheet" href="http://topdevil.com//css/prettify.css">
-			<script src="http://topdevil.com//css/jquery.js"></script>
-			<script src="http://topdevil.com//css/prettify.js"></script>
+			<link rel="stylesheet" href="http://moketao.github.io//css/prettify.css">
+			<script src="http://moketao.github.io//css/jquery.js"></script>
+			<script src="http://moketao.github.io//css/prettify.js"></script>
 			<script type="text/javascript">
         function lineDistance( point1, point2 )
         {
@@ -84,7 +82,7 @@
       
     </ul>
 
-    <p>&copy; 2017. All rights reserved. </p>
+    <p>&copy; 2018. All rights reserved. </p>
   </div>
 </div>
 
@@ -93,9 +91,7 @@
 <div class="post">
   <h1>Unity3D常用路径解读（表格版本）</h1>
   <span class="post-date">2015-04-14</span>
-      
-
-<p>关于Unity的资源路径和权限，网上的资料都很零散，于是我打算用表格来解释清楚。</p>
+      <p>关于Unity的资源路径和权限，网上的资料都很零散，于是我打算用表格来解释清楚。</p>
 
 <table>
 <thead>
@@ -133,6 +129,8 @@
 </tbody>
 </table>
 
+<p></p>
+
 <p>关于ios的目录权限，可进一步参考 <a href="https://developer.apple.com/library/ios/documentation/FileManagement/Conceptual/FileSystemProgrammingGuide/FileSystemOverview/FileSystemOverview.html">这里</a> 和 <a href="https://developer.apple.com/icloud/documentation/data-storage/index.html">这里</a>。</p>
 
 <p>streamingAssetsPath下的文件读取方法是：
@@ -144,34 +142,33 @@
     string filepath = &ldquo;jar:file://&rdquo; + Application.dataPath + &ldquo;!/assets/&rdquo;+&ldquo;/my.xml;
 </code></pre></p>
 
-<h3 id="ios:16683e76e14a70877b630ac3dd20e29c">IOS:</h3>
+<h3 id="ios">IOS:</h3>
 
 <pre><code>Application.dataPath :             Application/xxxx-xxxx-xxxx-xxxxxxxxxxxx/xxx.app/Data
 Application.streamingAssetsPath :  Application/xxxx-xxxx-xxxxxxxxxxxx/xxx.app/Data/Raw
 Application.persistentDataPath :   Application/xxxx-xxxx-xxxxxxxxxxxx/Documents
 Application.temporaryCachePath :   Application/xxxx-xxxx-xxxxxxxxxxxx/Library/Caches</code></pre>
 
-<h3 id="android:16683e76e14a70877b630ac3dd20e29c">Android:</h3>
+<h3 id="android">Android:</h3>
 
 <pre><code>Application.dataPath :                /data/app/xxx.xxx.xxx.apk
 Application.streamingAssetsPath :     jar:file:///data/app/xxx.xxx.xxx.apk/!/assets
 Application.persistentDataPath :      /data/data/xxx.xxx.xxx/files
 Application.temporaryCachePath :      /data/data/xxx.xxx.xxx/cache</code></pre>
 
-<h3 id="windows:16683e76e14a70877b630ac3dd20e29c">Windows:</h3>
+<h3 id="windows">Windows:</h3>
 
 <pre><code>Application.dataPath :                /Assets
 Application.streamingAssetsPath :     /Assets/StreamingAssets
 Application.persistentDataPath :      C:/Users/xxxx/AppData/LocalLow/CompanyName/ProductName
 Application.temporaryCachePath :      C:/Users/xxxx/AppData/Local/Temp/CompanyName/ProductName</code></pre>
 
-<h3 id="mac:16683e76e14a70877b630ac3dd20e29c">Mac:</h3>
+<h3 id="mac">Mac:</h3>
 
 <pre><code>Application.dataPath :                /Assets
 Application.streamingAssetsPath :     /Assets/StreamingAssets
 Application.persistentDataPath :      /Users/xxxx/Library/Caches/CompanyName/Product Name
 Application.temporaryCachePath :      /var/folders/57/6b4_9w8113x2fsmzx_yhrhvh0000gn/T/CompanyName/Product Name</code></pre>
-
 </div>
 </div>
 

@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Gpu on 破耳狼</title>
-    <link>http://topdevil.com/categories/gpu/</link>
+    <link>http://moketao.github.io/categories/gpu/</link>
     <description>Recent content in Gpu on 破耳狼</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Sun, 02 Nov 2014 10:51:57 +0800</lastBuildDate>
-    <atom:link href="http://topdevil.com/categories/gpu/index.xml" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="http://moketao.github.io/categories/gpu/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Golang、cuda、Windows 开发环境搭建</title>
-      <link>http://topdevil.com/Golang_cuda_Windows/</link>
+      <link>http://moketao.github.io/golang_cuda_windows/</link>
       <pubDate>Sun, 02 Nov 2014 10:51:57 +0800</pubDate>
       
-      <guid>http://topdevil.com/Golang_cuda_Windows/</guid>
-      <description>
-
-&lt;h2 id=&#34;步骤:cb248cbf25583db7cd96fd4710d513a3&#34;&gt;步骤&lt;/h2&gt;
+      <guid>http://moketao.github.io/golang_cuda_windows/</guid>
+      <description>&lt;h2 id=&#34;步骤&#34;&gt;步骤&lt;/h2&gt;
 
 &lt;ol&gt;
 &lt;li&gt;因为我的系统是 Win7 64位的，所以先装&lt;strong&gt;Mingw-w64&lt;/strong&gt;，下载地址：&lt;a href=&#34;http://sourceforge.net/projects/mingw-w64/&#34;&gt;http://sourceforge.net/projects/mingw-w64/&lt;/a&gt;
@@ -39,7 +39,7 @@ import &#34;C&#34;
 &lt;/pre&gt;
 &lt;/blockquote&gt;
 
-&lt;h2 id=&#34;注意事项:cb248cbf25583db7cd96fd4710d513a3&#34;&gt;注意事项&lt;/h2&gt;
+&lt;h2 id=&#34;注意事项&#34;&gt;注意事项&lt;/h2&gt;
 
 &lt;p&gt;上面代码中的F:/cuda/bin/lib/x64，代表cuda安装目录下的的lib目录，&lt;/p&gt;
 
@@ -48,7 +48,8 @@ import &#34;C&#34;
 &lt;p&gt;如果你的cuda安装在&lt;strong&gt;C盘&lt;/strong&gt;，则上面相应位置则是以C:/开头，而不是F:/开头。&lt;/p&gt;
 
 &lt;p&gt;斜杠注释不要去掉，golang能读，import &amp;ldquo;C&amp;rdquo;那一行必须与上一行&lt;strong&gt;紧贴&lt;/strong&gt;，中间不能有空行。&lt;/p&gt;
-</description>
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>
