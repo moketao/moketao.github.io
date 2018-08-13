@@ -1,75 +1,79 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
 <head>
 	<meta name="generator" content="Hugo 0.40.3" />
-  <link href="http://gmpg.org/xfn/11" rel="profile">
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2">
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2">
 
-  <title> 破耳狼 </title>
+    <title> 破耳狼 </title>
 
-  
-  <link rel="stylesheet" href="http://moketao.github.io//css/poole.css">
-  <link rel="stylesheet" href="http://moketao.github.io//css/syntax.css">
-  <link rel="stylesheet" href="http://moketao.github.io//css/hyde.css">
+    
+    <link rel="stylesheet" href="http://moketao.github.io/css/poole.css">
+    <link rel="stylesheet" href="http://moketao.github.io/css/syntax.css">
+    <link rel="stylesheet" href="http://moketao.github.io/css/hyde.css">
 
-  
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
-  <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
 
-  
-  
-			<link rel="stylesheet" href="http://moketao.github.io//css/prettify.css">
-			<script src="http://moketao.github.io//css/jquery.js"></script>
-			<script src="http://moketao.github.io//css/prettify.js"></script>
-			<script type="text/javascript">
-        function lineDistance( point1, point2 )
-        {
-          var xs = 0;
-          var ys = 0;
-         
-          xs = point2.x - point1.x;
-          xs = xs * xs;
-         
-          ys = point2.y - point1.y;
-          ys = ys * ys;
-         
-          return Math.sqrt( xs + ys );
+
+    
+    <link rel="stylesheet" href="http://moketao.github.io/css/prettify.css">
+    <script src="http://moketao.github.io/css/jquery.js"></script>
+    <script src="http://moketao.github.io/css/prettify.js"></script>
+    <script type="text/javascript">
+        function lineDistance(point1, point2) {
+            var xs = 0;
+            var ys = 0;
+
+            xs = point2.x - point1.x;
+            xs = xs * xs;
+
+            ys = point2.y - point1.y;
+            ys = ys * ys;
+
+            return Math.sqrt(xs + ys);
         }
-				$(function(){
-				$("pre").addClass("prettyprint linenums");
-					prettyPrint();
-          $("pre").on("mousedown",function(e){
-              var me = $(this);
-              me.data("posx",e.pageX);
-              me.data("posy",e.pageY);
-          });
-          $("pre").on("mouseup",function(e){
-              var me = $(this);
-              me.data("posx");
-              var p1 = {x:me.data("posx"),y:me.data("posy")};
-              var p2 = {x:e.pageX,y:e.pageY};
-              if(lineDistance(p2,p1)<10){
-                var has = me.data("hasclick");
-                if(has){
-                  me.width(me.width()/3.2);
-                  me.data("hasclick",false);
-                }else{
-                  me.width(me.width()*3.2);
-                  me.data("hasclick",true);
+        $(function() {
+            $("pre").addClass("prettyprint linenums");
+            prettyPrint();
+            $("pre").on("mousedown", function(e) {
+                var me = $(this);
+                me.data("posx", e.pageX);
+                me.data("posy", e.pageY);
+            });
+            $("pre").on("mouseup", function(e) {
+                var me = $(this);
+                me.data("posx");
+                var p1 = {
+                    x: me.data("posx"),
+                    y: me.data("posy")
+                };
+                var p2 = {
+                    x: e.pageX,
+                    y: e.pageY
+                };
+                if (lineDistance(p2, p1) < 10) {
+                    var has = me.data("hasclick");
+                    if (has) {
+                        me.width(me.width() / 3.2);
+                        me.data("hasclick", false);
+                    } else {
+                        me.width(me.width() * 3.2);
+                        me.data("hasclick", true);
+                    }
                 }
-              }
-          });
-				});
-
-			</script>
+            });
+        });
+    </script>
 </head>
-
 <body>
 
-<div class="sidebar" style="background: #000000 url(/img/bg.jpg) center center; background-size: cover;">
+<div class="sidebar" style="background: #000000 url(img/bg.jpg) center center; background-size: cover;">
     <div class="container sidebar-sticky">
         <div class="sidebar-about">
             <h1>破耳狼</h1>
@@ -127,16 +131,16 @@
 <p>左边是美工画的，细节不错，可惜比例扭曲了，右边是我修好的。（不务正业，捂脸）</p>
 
 <p>↓异人男
-<img src="img/ps/ps1.png" alt="" /></p>
+<img src="/img/ps/ps1.png" alt="" /></p>
 
 <p>↓武士女
-<img src="img/ps/ps2.png" alt="" /></p>
+<img src="/img/ps/ps2.png" alt="" /></p>
 
 <p>↓文人女
-<img src="img/ps/ps3.png" alt="" /></p>
+<img src="/img/ps/ps3.png" alt="" /></p>
 
 <p>↓异人女
-<img src="img/ps/ps4.png" alt="" /></p>
+<img src="/img/ps/ps4.png" alt="" /></p>
 
 <p></p>
                       
