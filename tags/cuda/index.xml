@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Cuda on 破耳狼</title>
-    <link>http://moketao.github.io/tags/cuda/</link>
+    <link>https://moketao.github.io/tags/cuda/</link>
     <description>Recent content in Cuda on 破耳狼</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Sun, 02 Nov 2014 10:51:57 +0800</lastBuildDate>
     
-	<atom:link href="http://moketao.github.io/tags/cuda/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://moketao.github.io/tags/cuda/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Golang、cuda、Windows 开发环境搭建</title>
-      <link>http://moketao.github.io/golang_cuda_windows/</link>
+      <link>https://moketao.github.io/golang_cuda_windows/</link>
       <pubDate>Sun, 02 Nov 2014 10:51:57 +0800</pubDate>
       
-      <guid>http://moketao.github.io/golang_cuda_windows/</guid>
+      <guid>https://moketao.github.io/golang_cuda_windows/</guid>
       <description>&lt;h2 id=&#34;步骤&#34;&gt;步骤&lt;/h2&gt;
 
 &lt;ol&gt;
