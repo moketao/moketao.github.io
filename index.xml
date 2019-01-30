@@ -12,6 +12,20 @@
     
     
     <item>
+      <title>2018和2019</title>
+      <link>https://moketao.github.io/2018and2019/</link>
+      <pubDate>Fri, 11 May 2018 10:24:33 +0000</pubDate>
+      
+      <guid>https://moketao.github.io/2018and2019/</guid>
+      <description>2018 主要做了下面几件事： * 完成了一个 App（包含新闻和论坛，以及管理系统），应用市场搜 。 * 完成半个游戏，幻想水浒，目前仍在断断续续开发中。 * 为了小孩读书的事情，后半年花了大量时间在买房的事情上。 * 每天晚上围着公园快步走两圈。
+2019 计划做的两家事情：
+通用编程（兼容键盘编程和 TNT（touch and talk） 编程，并兼顾分布式性能、跨平台、基于函数的程序员社交。），简单的说，就是【让 3 亿人无痛编程】。
+完成一个 AGI （通用人工智能）的 demo，并尝试落地一个新型（以抽象格式存储的）自动化更新的大型地图应用。简单的说，就是为 AI 和 XR 时代准备的地图。这个地图甚至可以为制作电影场景提供 TNT 方式的辅助设计和更新。
+2019 年，我大部分时间将花费在这两个链接上：
+ https://github.com/HeTeam/he4js 也就是上文提到的 AGI demo。 http://blog.poerlang.com 超短文集  </description>
+    </item>
+    
+    <item>
       <title>不务正业的程序员02（关于捏脸）</title>
       <link>https://moketao.github.io/badcoder2/</link>
       <pubDate>Fri, 11 May 2018 10:24:33 +0000</pubDate>
